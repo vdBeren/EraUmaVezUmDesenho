@@ -27,6 +27,9 @@
 		549A0DF11AF5DC6E007CD13A /* joaoemariaTXT.txt in Resources */ = {isa = PBXBuildFile; fileRef = 549A0DED1AF5DC6E007CD13A /* joaoemariaTXT.txt */; };
 		549A0DF21AF5DC6E007CD13A /* MODELO.txt in Resources */ = {isa = PBXBuildFile; fileRef = 549A0DEE1AF5DC6E007CD13A /* MODELO.txt */; };
 		549A0DF31AF5DC6E007CD13A /* redhoodTXT.txt in Resources */ = {isa = PBXBuildFile; fileRef = 549A0DEF1AF5DC6E007CD13A /* redhoodTXT.txt */; };
+		549A0DF61AF68B76007CD13A /* SchuboiseHandwrite.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 549A0DF51AF68B76007CD13A /* SchuboiseHandwrite.ttf */; };
+		549A0DFA1AF68EC8007CD13A /* EVDDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A0DF81AF68EC8007CD13A /* EVDDrawViewController.m */; };
+		549A0DFB1AF68EC8007CD13A /* EVDDrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549A0DF91AF68EC8007CD13A /* EVDDrawViewController.xib */; };
 		54EEA9BA1AF4567700E141BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EEA9B91AF4567700E141BF /* main.m */; };
 		54EEA9BD1AF4567700E141BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EEA9BC1AF4567700E141BF /* AppDelegate.m */; };
 		54EEA9BF1AF4567700E141BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54EEA9BE1AF4567700E141BF /* Images.xcassets */; };
@@ -140,6 +143,10 @@
 		549A0DED1AF5DC6E007CD13A /* joaoemariaTXT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = joaoemariaTXT.txt; sourceTree = "<group>"; };
 		549A0DEE1AF5DC6E007CD13A /* MODELO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MODELO.txt; sourceTree = "<group>"; };
 		549A0DEF1AF5DC6E007CD13A /* redhoodTXT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = redhoodTXT.txt; sourceTree = "<group>"; };
+		549A0DF51AF68B76007CD13A /* SchuboiseHandwrite.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SchuboiseHandwrite.ttf; sourceTree = "<group>"; };
+		549A0DF71AF68EC8007CD13A /* EVDDrawViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVDDrawViewController.h; sourceTree = "<group>"; };
+		549A0DF81AF68EC8007CD13A /* EVDDrawViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVDDrawViewController.m; sourceTree = "<group>"; };
+		549A0DF91AF68EC8007CD13A /* EVDDrawViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EVDDrawViewController.xib; sourceTree = "<group>"; };
 		54EEA9B41AF4567700E141BF /* EraUmaVezUmDesenho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EraUmaVezUmDesenho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54EEA9B81AF4567700E141BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54EEA9B91AF4567700E141BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -326,6 +333,16 @@
 			name = Texts;
 			sourceTree = "<group>";
 		};
+		549A0DFC1AF68ED1007CD13A /* Draw */ = {
+			isa = PBXGroup;
+			children = (
+				549A0DF71AF68EC8007CD13A /* EVDDrawViewController.h */,
+				549A0DF81AF68EC8007CD13A /* EVDDrawViewController.m */,
+				549A0DF91AF68EC8007CD13A /* EVDDrawViewController.xib */,
+			);
+			name = Draw;
+			sourceTree = "<group>";
+		};
 		54EEA9AB1AF4567700E141BF = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +436,7 @@
 				549A0DDE1AF5B8E1007CD13A /* Menu */,
 				54EEA9F71AF461A600E141BF /* BookPage */,
 				54EEA9F11AF4615F00E141BF /* Page */,
+				549A0DFC1AF68ED1007CD13A /* Draw */,
 				549A0DE91AF5BD91007CD13A /* Help */,
 			);
 			name = ViewControllers;
@@ -465,6 +483,7 @@
 		54EEAA3A1AF49B1D00E141BF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				549A0DF51AF68B76007CD13A /* SchuboiseHandwrite.ttf */,
 				54EEAA041AF49A7F00E141BF /* CardenioModernBold.ttf */,
 			);
 			name = Fonts;
@@ -684,6 +703,7 @@
 				54EEAA241AF49A7F00E141BF /* Check-01.png in Resources */,
 				549A0DF21AF5DC6E007CD13A /* MODELO.txt in Resources */,
 				54EEAA601AF49C5A00E141BF /* joaoemariaCover.png in Resources */,
+				549A0DF61AF68B76007CD13A /* SchuboiseHandwrite.ttf in Resources */,
 				54EEAA351AF49A7F00E141BF /* shelfMiddle.png in Resources */,
 				54EEAA7A1AF49D1100E141BF /* Icon-60@3x.png in Resources */,
 				54EEAA7D1AF49D1100E141BF /* Icon-76.png in Resources */,
@@ -736,6 +756,7 @@
 				54EEAA531AF49C0E00E141BF /* c7.png in Resources */,
 				54EEAA301AF49A7F00E141BF /* LegendaParar.png in Resources */,
 				54EEAA5E1AF49C5A00E141BF /* home.png in Resources */,
+				549A0DFB1AF68EC8007CD13A /* EVDDrawViewController.xib in Resources */,
 				54EEAA7C1AF49D1100E141BF /* Icon-72@2x.png in Resources */,
 				54EEAA871AF49D1100E141BF /* Icon-Spotlight-40@3x.png in Resources */,
 				54EEAA321AF49A7F00E141BF /* Play.png in Resources */,
@@ -768,6 +789,7 @@
 				54EEA9BD1AF4567700E141BF /* AppDelegate.m in Sources */,
 				549A0DE71AF5BD88007CD13A /* EVDHelpViewController.m in Sources */,
 				54EEA9BA1AF4567700E141BF /* main.m in Sources */,
+				549A0DFA1AF68EC8007CD13A /* EVDDrawViewController.m in Sources */,
 				549A0DDC1AF5B8D8007CD13A /* EVDMenuViewController.m in Sources */,
 				54EEA9FA1AF46F9C00E141BF /* EVDUser.m in Sources */,
 				54EEA9EE1AF4611700E141BF /* EVDPageViewController.m in Sources */,

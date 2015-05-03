@@ -31,7 +31,7 @@
     if (self) {
         _pageText = [pageDecoder decodeObjectForKey:@"pageText"];
         _pageNumber = [pageDecoder decodeIntForKey:@"pageNumber"];
-        _pageDraw = [UIImage imageWithData:[pageDecoder decodeObjectForKey:@"pageDraw"]];
+        _pageDrawTop = [UIImage imageWithData:[pageDecoder decodeObjectForKey:@"pageDrawTop"]];
         _pageDrawBottom = [UIImage imageWithData:[pageDecoder decodeObjectForKey:@"pageDrawBottom"]];
         
         
@@ -42,7 +42,7 @@
 - (void)encodeWithCoder:(NSCoder *)pageCoder{
     [pageCoder encodeObject:self.pageText forKey:@"pageText"];
     [pageCoder encodeInteger:self.pageNumber forKey:@"pageNumber"];
-    [pageCoder encodeObject:UIImagePNGRepresentation(self.pageDraw) forKey:@"pageDraw"];
+    [pageCoder encodeObject:UIImagePNGRepresentation(self.pageDrawTop) forKey:@"pageDrawTop"];
     [pageCoder encodeObject:UIImagePNGRepresentation(self.pageDrawBottom) forKey:@"pageDrawBottom"];
     
 }

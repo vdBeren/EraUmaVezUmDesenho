@@ -24,26 +24,26 @@
     //Inicia musica de fundo
     NSString *path = [NSString stringWithFormat:@"%@/background.mp3", [[NSBundle mainBundle] resourcePath]];
     NSURL *soundUrl = [NSURL fileURLWithPath:path];
-    self.background = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
-    self.background.numberOfLoops = -1;
-    [self.background setVolume:0.1];
-    [self.background play];
+    _background = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
+    _background.numberOfLoops = -1;
+    [_background setVolume:0.1];
+    [_background play];
     
     //Delay para mostrar a launchscreen.
     //[NSThread sleepForTimeInterval:2.0];
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     EVDMenuViewController *menu = [[EVDMenuViewController alloc] init];
     
-    self.navController = [[UINavigationController alloc]initWithRootViewController:menu];
-    self.navController.navigationBarHidden = YES;
+    _navController = [[UINavigationController alloc]initWithRootViewController:menu];
+    _navController.navigationBarHidden = YES;
     
-    [self.window setRootViewController:_navController];
+    [_window setRootViewController:_navController];
     
     
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    _window.backgroundColor = [UIColor whiteColor];
+    [_window makeKeyAndVisible];
     return YES;
 }
 

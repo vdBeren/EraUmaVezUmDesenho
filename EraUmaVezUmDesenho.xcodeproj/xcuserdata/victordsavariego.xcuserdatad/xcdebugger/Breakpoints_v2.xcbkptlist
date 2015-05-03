@@ -41,29 +41,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EraUmaVezUmDesenho/EVDPageViewController.m"
-            timestampString = "452334131.524485"
+            filePath = "EraUmaVezUmDesenho/EVDDrawViewController.m"
+            timestampString = "452380950.262922"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "-drawInViewCurrentPoint:lastPoint:"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "-touchesMoved:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EraUmaVezUmDesenho/EVDPageViewController.m"
-            timestampString = "452334131.524485"
+            filePath = "EraUmaVezUmDesenho/EVDDrawViewController.m"
+            timestampString = "452380951.984196"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "-loadImageSettings"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

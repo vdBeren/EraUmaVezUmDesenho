@@ -10,4 +10,12 @@
 
 @interface EVDHelpViewController : UIViewController
 
+@property (nonatomic) IBOutlet UIScrollView *scrollViewHelpText;
+@property (nonatomic) IBOutlet UIScrollView *scrollViewLog;
+
+@property (nonatomic) IBOutlet UISwitch *switchBGMusic;
+
+@property (nonatomic) IBOutlet UILabel *lblHelpText;
+@property (nonatomic) IBOutlet UILabel *lblLog;
+
 @end

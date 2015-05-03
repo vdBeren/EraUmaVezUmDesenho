@@ -23,7 +23,7 @@
 
 - (instancetype) init {
     @throw [NSException exceptionWithName:@"Singleton"
-                                   reason:@"Use  + [EVDUser]"
+                                   reason:@"Use  + [EVDUser instance]"
                                  userInfo:nil ];
     
 }

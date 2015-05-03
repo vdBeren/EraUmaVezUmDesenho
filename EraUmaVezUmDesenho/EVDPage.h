@@ -14,7 +14,7 @@
 
 @property (nonatomic) NSInteger pageNumber;
 @property (nonatomic) NSString *pageText;
-@property (nonatomic) UIImage *pageDraw;
+@property (nonatomic) UIImage *pageDrawTop;
 @property (nonatomic) UIImage *pageDrawBottom;
 
 

@@ -9,6 +9,7 @@
 #import "EVDPageViewController.h"
 #import "EVDUser.h"
 #import "EVDSounds.h"
+#import "EVDDrawViewController.h"
 #import "AppDelegate.h"
 
 @interface EVDPageViewController ()
@@ -16,6 +17,7 @@
 @property (nonatomic) EVDUser *currentUser;
 @property (nonatomic) AppDelegate *delegate;
 @property (nonatomic) EVDSounds *buttonSounds;
+@property (nonatomic) EVDDrawViewController *drawViewController;
 
 @end
 
@@ -28,6 +30,7 @@
     _currentUser = [EVDUser instance];
     _delegate = ( AppDelegate* )[UIApplication sharedApplication].delegate;
     _buttonSounds = [[EVDSounds alloc] init];
+    _drawViewController = [[EVDDrawViewController alloc] init];
     _btnColorFan = [[NSMutableArray alloc] init];
     _btnWidthFan = [[NSMutableArray alloc] init];
     
@@ -48,8 +51,10 @@
     
     [_btnPlay setEnabled:YES];
     
+    [_drawViewController setCurrentPage:_currentPage];
+    [_drawView addSubview:[_drawViewController view]];
+    
     [self createButtonsLeque];
-    [self loadImageSettings];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,7 +67,8 @@
     
     [self bgView].image = [UIImage imageNamed:@"Fundo.png"];
     [self setPageText:[_currentPage pageText] textIndex:[NSString stringWithFormat:@"%ld",[_currentPage pageNumber]+1]];
-    [self drawView].image = [_currentPage pageDraw];
+    
+    [_drawViewController setCurrentPage:_currentPage];
     
     [self viewDidLayoutSubviews];
 }
@@ -92,90 +98,6 @@
 
 -(BOOL) isRecording{
     return _audioRecorder.recording;
-}
-
--(void)loadImageSettings{
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    _drawImage.image = [defaults objectForKey:@"drawImageKey"];
-    _drawImage = [[UIImageView alloc] initWithImage:nil];
-    _drawImage.frame = _drawView.frame;
-    _drawView.image = [_currentPage pageDraw];
-    [_drawView addSubview:_drawImage];
-    
-    
-}
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    UITouch *touch = [[event allTouches] anyObject];
-    
-    touchCurrentPoint = [touch locationInView:touch.view];
-    touchLastPoint = [touch locationInView:_drawView];
-    
-    [self drawInViewCurrentPoint:touchCurrentPoint lastPoint:touchLastPoint];
-    
-    [super touchesBegan: touches withEvent: event];
-}
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    UITouch *touch = [touches anyObject];
-    touchCurrentPoint = [touch locationInView:_drawView];
-    
-    [self drawInViewCurrentPoint:touchCurrentPoint lastPoint:touchLastPoint];
-    
-    touchLastPoint = touchCurrentPoint;
-}
-
-
-- (void) drawInViewCurrentPoint:(CGPoint)currentPoint lastPoint:(CGPoint)lastPoint{
-    
-    
-    //Contexto da caixa de desenho.
-    UIGraphicsBeginImageContext(_drawView.frame.size);
-    [_drawImage.image drawInRect:_drawView.bounds];
-    
-    //Define a forma, tamanho e cor da linha.
-    
-    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), brushWidth);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), r, g, b, alpha);
-    
-    // Altera o contexto de desenho.
-    CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeNormal);
-    
-    //Começa o caminho de desenho.
-    CGContextBeginPath(UIGraphicsGetCurrentContext());
-    
-    //Move para o ponto de desenho e adiciona linha entre o ultimo e atual ponto.
-    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
-    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
-    
-    //Desenha o caminho.
-    CGContextStrokePath(UIGraphicsGetCurrentContext());
-    
-    //Define o tamanho da caixa de desenho.
-    [_drawImage setFrame:_drawView.bounds];
-    
-    //Se for pai, desenha mais opaco
-    if ([_currentUser currentUser] == 1) {
-        _drawImage.alpha = 0.2;
-    }
-    else{
-        _drawImage.alpha = 0.7;
-    }
-    _drawImage.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-
-    [_drawView addSubview:_drawImage];
-    
-    // Coloca a imagem desenhada no pageDraw da página atual.
-    _currentPage.pageDraw = _drawImage.image;
-    
-    //[self.view sendSubviewToBack:drawImage];
-    
 }
 
 
@@ -536,8 +458,10 @@
             break;
         default: // preto
             r = 11.0/255; g = 12.0/255; b = 12.0/255;
-
     }
+    
+    [_drawViewController setDrawingColorRed:r Green:g Blue:b Alpha:alpha];
+    
 }
 
 
@@ -546,6 +470,7 @@
     [self.buttonSounds playClique:7];
     [self espessuraSelecionada:[sender tag]];
     selectedWidth = [sender tag];
+    
 }
 
 - (void)espessuraSelecionada:(NSInteger)selecao {
@@ -563,6 +488,7 @@
         default:
             brushWidth = 12;
     }
+    [_drawViewController setBrushWidth:brushWidth];
 }
 
 

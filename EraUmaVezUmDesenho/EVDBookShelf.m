@@ -86,8 +86,8 @@
     // Make sure that the first argument is NSDocumentDirectory
     // and not NSDocumentationDirectory
     NSArray *documentDirectories =
-    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                        NSUserDomainMask, YES);
+    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
     // Get the one document directory from that list
     NSString *documentDirectory = [documentDirectories firstObject];
     return [documentDirectory stringByAppendingPathComponent:@"books.archive"];

@@ -26,11 +26,14 @@
 	<string>LaunchScreen</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>ATSApplicationFontsPath</key>
-	<string>CardenioModernBold.ttf</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SchuboiseHandwrite.ttf</string>
+		<string>CardenioModernBold.ttf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
