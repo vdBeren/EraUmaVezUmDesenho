@@ -57,7 +57,7 @@
             break;
     }
     
-    path = [NSString stringWithFormat:@"%@/%@.mp3", bundle, name];
+    path = [NSString stringWithFormat:@"%@/%@", bundle, name];
     
     soundUrl = [NSURL fileURLWithPath:path];
     click = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];

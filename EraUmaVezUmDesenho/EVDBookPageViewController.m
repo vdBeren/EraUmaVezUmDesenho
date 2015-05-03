@@ -37,7 +37,7 @@
     [_btnFinalizar setHidden:YES];
     
     
-    [_pageViewController setCurrentBookKey:_bookKey];
+    [_pageViewController setCurrentBookKey:[_currentBook bookKey]];
     [self changePage];
     [_viewPage addSubview:[_pageViewController view]];
     
@@ -64,18 +64,104 @@
 }
 
 - (void) setButtonsSettingsForCurrentUser{
-    if ([self.currentUser currentUser] == 0) {
+    if ([_currentUser currentUser] == 0) {
         [_btnFinalizar setHidden:YES];
         [_viewAlertFinalizar setHidden:YES];
     }
 
-    
     [_pageViewController setButtonsSettingsForCurrentUser];
 }
 
 - (void) changePage{
     _currentPage = [[_currentBook bookPages] objectAtIndex:_bookPageIndex];
     [_pageViewController setCurrentPage:_currentPage];
+}
+
+- (IBAction)btnMenu:(id)sender{
+    
+    [_pageViewController stopPlayer];
+    [self.navigationController popViewControllerAnimated:YES];
+    [_buttonSounds playClique:1];
+    
+}
+
+- (IBAction)touchBtnEsq:(id)sender{
+    if (_bookPageIndex <= 0 || [_pageViewController isRecording]){
+        return;
+    }
+    
+    [_pageViewController stopPlayer];
+    [_btnDir setHidden:NO];
+    
+    if (_bookPageIndex == 1) {
+        [_btnEsq setHidden:YES];
+    }
+    
+    _bookPageIndex--;
+    
+    [self setButtonsSettingsForCurrentUser];
+    [self changePage];
+    [_btnFinalizar setHidden:YES];
+    [_buttonSounds playClique:4];
+    
+}
+
+- (IBAction)touchBtnDir:(id)sender{
+    if(_bookPageIndex >= _bookPageTotal-1 || [_pageViewController isRecording]){
+        return;
+    }
+    
+    [_pageViewController stopPlayer];
+    [_btnEsq setHidden:NO];
+    
+    
+    if (_bookPageIndex == _bookPageTotal-2) {
+        [_btnFinalizar setHidden:NO];
+        [_btnDir setHidden:YES];
+    }
+    
+    _bookPageIndex++;
+    
+    [self setButtonsSettingsForCurrentUser];
+    [self changePage];
+    [_buttonSounds playClique:4];
+}
+
+- (IBAction)btnFinalizar:(id)sender{
+    
+    [_buttonSounds playClique:5];
+    [_viewAlertFinalizar setHidden:NO];
+    [_imageCheckViewAlert setHidden:YES];
+    
+}
+
+- (IBAction)btnFinalizarOk:(id)sender{
+    
+    [_buttonSounds playClique:1];
+    [_imageCheckViewAlert setHidden:NO];
+    [_currentBook setBookLocked:YES];
+    [self performSelector:@selector(checkOn) withObject:nil afterDelay:0.5];
+    
+}
+
+- (IBAction)btnFinalizarCancelar:(id)sender{
+    [_buttonSounds playClique:5];
+    
+    [_viewAlertFinalizar setHidden:YES];
+}
+
+- (void) checkOn {
+    
+    [_btnEsq setHidden:YES];
+    [_btnDir setHidden:NO];
+    
+    _bookPageIndex = 0;
+    [self changePage];
+    [_pageViewController stopPlayer];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    [_buttonSounds playClique:1];
+    
 }
 
 /*

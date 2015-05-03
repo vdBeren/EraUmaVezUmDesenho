@@ -1,0 +1,7 @@
+Seguir este modelo para criar novos livros. Use enter para dividir os conteudos.
+
+1 Linha -> TITULO
+2 Linha -> DESCRIÇÃO
+3 Linha -> AUTOR
+4 Linha -> YES ou NO para uso de páginas por imagens.
+5 Linha -> A partir daqui cada linha (enter) será uma página do livro.

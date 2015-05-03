@@ -25,9 +25,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.currentUser = [EVDUser instance];
-    self.delegate = ( AppDelegate* )[UIApplication sharedApplication].delegate;
-    self.buttonSounds = [[EVDSounds alloc] init];
+    _currentUser = [EVDUser instance];
+    _delegate = ( AppDelegate* )[UIApplication sharedApplication].delegate;
+    _buttonSounds = [[EVDSounds alloc] init];
     
     fetchAudio = NO;
     fetchRecord = NO;
@@ -40,14 +40,12 @@
     imageStop = [UIImage imageNamed:@"Stop.ong"];
     
     //Se for pai, libera botao de gravação.
-    if ([self.currentUser currentUser] == 1) {
+    if ([_currentUser currentUser] == 1) {
         [_btnRecordPause setEnabled:YES];
     }
     
     [_btnPlay setEnabled:YES];
     
-    //TODO
-    //_lblPageIndex.text = [NSString stringWithFormat:@"%i", _pageNumber+1];
     
     [self loadImageSettings];
 }
@@ -59,21 +57,14 @@
 
 -(void) setCurrentPage:(EVDPage *)currentPage{
     _currentPage = currentPage;
+    
+    [self bgView].image = [UIImage imageNamed:@"Fundo.png"];
+    
     [self setPageText:[_currentPage pageText] textIndex:[NSString stringWithFormat:@"%ld",[_currentPage pageNumber]]];
 }
 
 -(void) setCurrentBookKey:(NSString *)currentBookKey{
     _currentBookKey = currentBookKey;
-}
-
--(void)loadImageSettings{
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    _drawImage.image = [defaults objectForKey:@"drawImageKey"];
-    _drawImage = [[UIImageView alloc] initWithImage:nil];
-    _drawImage.frame = _drawView.frame;
-    [_drawView addSubview:_drawImage];
-    
 }
 
 - (void) setButtonsSettingsForCurrentUser {
@@ -87,12 +78,26 @@
         [_btnRecordPause setEnabled:YES];
         [self setImagensButtonsPai];
         
-        for(UIButton *btnCor in self.btnColorFan)
-            [btnCor setHidden:YES];
-        
-        for(UIButton *btnEspessura in self.btnWidthFan)
-            [btnEspessura setHidden:YES];
+//        for(UIButton *btnCor in self.btnColorFan)
+//            [btnCor setHidden:YES];
+//        
+//        for(UIButton *btnEspessura in self.btnWidthFan)
+//            [btnEspessura setHidden:YES];
     }
+}
+
+-(BOOL) isRecording{
+    return _audioRecorder.recording;
+}
+
+-(void)loadImageSettings{
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _drawImage.image = [defaults objectForKey:@"drawImageKey"];
+    _drawImage = [[UIImageView alloc] initWithImage:nil];
+    _drawImage.frame = _drawView.frame;
+    [_drawView addSubview:_drawImage];
+    
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -120,9 +125,6 @@
 
 - (void) drawInViewCurrentPoint:(CGPoint)currentPoint lastPoint:(CGPoint)lastPoint{
     
-    if ([self.currentUser currentUser] == 1) {
-        return;
-    }
     
     //Contexto da caixa de desenho.
     UIGraphicsBeginImageContext(_drawView.frame.size);
@@ -151,7 +153,13 @@
     //Define o tamanho da caixa de desenho.
     [_drawImage setFrame:_drawView.bounds];
     
-    _drawImage.alpha = 0.7;
+    //Se for pai, desenha mais opaco
+    if ([_currentUser currentUser] == 1) {
+        _drawImage.alpha = 0.3;
+    }
+    else{
+        _drawImage.alpha = 0.7;
+    }
     _drawImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
@@ -197,7 +205,7 @@
 
 - (void) playPauseConfig {
     
-    if ([self.currentUser currentUser] == 0) {
+    if ([_currentUser currentUser] == 0) {
         if (_btnPlay.currentBackgroundImage == imageNarrate) {
             [_btnPlay setBackgroundImage:imageNarratePause forState:UIControlStateNormal];
         }
@@ -230,7 +238,7 @@
     
     if (!_audioRecorder.recording) {
         
-        //[self.delegate.background stop];
+        [_delegate.background stop];
         
         if (fetchRecord == NO) {
             
@@ -291,7 +299,7 @@
 }
 
 - (IBAction)stopTapped:(id)sender {
-    [self.delegate.background play];
+    [_delegate.background play];
     [_audioRecorder stop];
     
     [_btnRecordPause setBackgroundImage:imageRecord forState:UIControlStateNormal];
@@ -347,7 +355,7 @@
 
 - (void) stopPlayer{
     [_audioPlayer stop];
-    if ([self.currentUser currentUser] == 0) {
+    if ([_currentUser currentUser] == 0) {
         [_btnPlay setBackgroundImage:imageNarrate forState:UIControlStateNormal];
     }
     else{
@@ -364,6 +372,9 @@
     
     [_btnStop setHidden:NO];
     [_btnRecordPause setHidden:NO];
+    [_imageLabelPlayPause setHidden:NO];
+    [_imageLabelRecord setHidden:NO];
+    [_imageLabelStop setHidden:NO];
 }
 
 - (void) setImagensButtonsFilho {
@@ -482,6 +493,7 @@
 
 - (void)corSelecionada:(NSInteger)selecao {
     
+    alpha = 1.0;
     switch (selecao) {
         case 0: // vermelho
             r = 193.0/255; g = 25.0/255; b = 55.0/255;

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SchuboiseHandwrite.ttf">
+            <string>SchuboiseHandwrite</string>
+            <string>SchuboiseHandwrite</string>
+            <string>SchuboiseHandwrite</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EVDMenuViewController">
+            <connections>
+                <outlet property="btnAjuda" destination="wVA-CT-9ub" id="NVQ-54-I3a"/>
+                <outlet property="btnFilho" destination="em9-8r-tyb" id="jmS-ob-qdO"/>
+                <outlet property="btnPai" destination="9yA-cj-ofB" id="ZHx-U1-aDr"/>
+                <outlet property="imageViewCover" destination="y6K-v6-7Pb" id="Uxc-YR-4HO"/>
+                <outlet property="lblAuthor" destination="yeP-4j-j3o" id="LXC-L8-alJ"/>
+                <outlet property="lblDescription" destination="W6E-CA-CkX" id="3Bg-yN-OgI"/>
+                <outlet property="lblTitle" destination="dFv-Oh-V6q" id="tSW-dI-da1"/>
+                <outlet property="scrollViewShelf" destination="6i7-RI-V40" id="kpK-u9-9V5"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Fundo.png" translatesAutoresizingMaskIntoConstraints="NO" id="BEw-3b-akE" userLabel="Fundo">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6i7-RI-V40" userLabel="scrollViewShelf">
+                    <rect key="frame" x="8" y="260" width="564" height="500"/>
+                </scrollView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LogoEraUmaVezUmDesenho.png" translatesAutoresizingMaskIntoConstraints="NO" id="H5e-Gj-kIG" userLabel="viewLogo">
+                    <rect key="frame" x="246" y="0.0" width="532" height="283"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="48h-zn-ald" userLabel="imageViewInfo">
+                    <rect key="frame" x="580" y="260" width="436" height="500"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y6K-v6-7Pb" userLabel="imageViewCover">
+                    <rect key="frame" x="696" y="340" width="208" height="208"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em9-8r-tyb" userLabel="btnFilho">
+                    <rect key="frame" x="699" y="261" width="203" height="82"/>
+                    <state key="normal" image="BtnComeçar.png">
+                        <color key="titleColor" red="0.36160432450000002" green="0.22477007869999999" blue="0.043191358989999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnFilho:" destination="-1" eventType="touchUpInside" id="4xq-MJ-yzq"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TITLE" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFv-Oh-V6q" userLabel="lblTitle">
+                    <rect key="frame" x="619" y="556" width="363" height="29"/>
+                    <fontDescription key="fontDescription" name="SchuboiseHandwrite" family="SchuboiseHandwrite" pointSize="24"/>
+                    <color key="textColor" red="0.36160432450000002" green="0.22477007869999999" blue="0.043191358989999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVA-CT-9ub" userLabel="btnAjuda">
+                    <rect key="frame" x="954" y="8" width="54" height="90"/>
+                    <state key="normal" image="btnHelp.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnAjuda:" destination="-1" eventType="touchUpInside" id="93M-E3-KLz"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AUTHOR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeP-4j-j3o" userLabel="lblAuthor">
+                    <rect key="frame" x="619" y="621" width="363" height="21"/>
+                    <fontDescription key="fontDescription" name="SchuboiseHandwrite" family="SchuboiseHandwrite" pointSize="18"/>
+                    <color key="textColor" red="0.36160432450000002" green="0.22477007869999999" blue="0.043191358989999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DESCRIPTION" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6E-CA-CkX" userLabel="lblDescription">
+                    <rect key="frame" x="619" y="590" width="363" height="23"/>
+                    <fontDescription key="fontDescription" name="SchuboiseHandwrite" family="SchuboiseHandwrite" pointSize="20"/>
+                    <color key="textColor" red="0.36160432450000002" green="0.22477007869999999" blue="0.043191358989999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yA-cj-ofB" userLabel="btnPai">
+                    <rect key="frame" x="904" y="706" width="104" height="56"/>
+                    <state key="normal" backgroundImage="BtnNarrar.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnPai:" destination="-1" eventType="touchUpInside" id="SKW-91-hCE"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="BtnComeçar.png" width="418" height="173"/>
+        <image name="BtnNarrar.png" width="169" height="95"/>
+        <image name="Fundo.png" width="2050" height="1538"/>
+        <image name="LogoEraUmaVezUmDesenho.png" width="2048" height="1536"/>
+        <image name="btnHelp.png" width="136" height="224"/>
+    </resources>
+</document>

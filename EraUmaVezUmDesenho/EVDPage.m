@@ -17,14 +17,21 @@
 
 @implementation EVDPage
 
+- (instancetype) initWithPageNumber:(NSInteger)pageNumber pageText:(NSString *)pageText{
+    self = [super init];
+    if (self) {
+        _pageNumber = pageNumber;
+        _pageText = pageText;
+    }
+    return self;
+}
+
 - (instancetype)initWithCoder:(NSCoder *)pageDecoder{
     self = [super init];
     if (self) {
         _pageText = [pageDecoder decodeObjectForKey:@"pageText"];
-        _pageAudioURL = [pageDecoder decodeObjectForKey:@"pageAudioURL"];
-        _pageBackgroundURL = [pageDecoder decodeObjectForKey:@"pageBackgroundURL"];
         _pageDraw = [UIImage imageWithData:[pageDecoder decodeObjectForKey:@"pageDraw"]];
-        _pageNumber = [pageDecoder decodeIntForKey:@"pageAudioURL"];
+        _pageNumber = [pageDecoder decodeIntForKey:@"pageNumber"];
         
     }
     return self;
@@ -32,10 +39,8 @@
 
 - (void)encodeWithCoder:(NSCoder *)pageCoder{
     [pageCoder encodeObject:self.pageText forKey:@"pageText"];
-    [pageCoder encodeObject:self.pageAudioURL forKey:@"pageAudioURL"];
-    [pageCoder encodeObject:self.pageBackgroundURL forKey:@"pageBackgroundURL"];
     [pageCoder encodeObject:UIImagePNGRepresentation(self.pageDraw) forKey:@"pageDraw"];
-    [pageCoder encodeInt:self.pageNumber forKey:@"pageNumber"];
+    [pageCoder encodeInteger:self.pageNumber forKey:@"pageNumber"];
     
     
 }

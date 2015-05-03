@@ -11,11 +11,12 @@
 
 @interface EVDBookShelf : NSObject
 
-+ (instancetype)EVDBookShelf;
++ (instancetype)bookShelf;
 
 - (void)setBook:(EVDBook *)book forKey:(NSString *)key;
 - (EVDBook *)bookForKey:(NSString *)key;
 - (void)deleteBookForKey:(NSString *)key;
-- (unsigned long int) bookTotal;
+- (NSInteger) bookTotal;
+- (BOOL) saveChanges;
 
 @end

@@ -18,6 +18,15 @@
 		54049EDB1AF4B8F300A0D252 /* pageProx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 54049ED31AF4B8F300A0D252 /* pageProx.mp3 */; };
 		549A0DD31AF5874E007CD13A /* EVDBookPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A0DD11AF5874E007CD13A /* EVDBookPageViewController.m */; };
 		549A0DD41AF5874E007CD13A /* EVDBookPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549A0DD21AF5874E007CD13A /* EVDBookPageViewController.xib */; };
+		549A0DDC1AF5B8D8007CD13A /* EVDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A0DDA1AF5B8D8007CD13A /* EVDMenuViewController.m */; };
+		549A0DDD1AF5B8D8007CD13A /* EVDMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549A0DDB1AF5B8D8007CD13A /* EVDMenuViewController.xib */; };
+		549A0DE71AF5BD88007CD13A /* EVDHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A0DE51AF5BD88007CD13A /* EVDHelpViewController.m */; };
+		549A0DE81AF5BD88007CD13A /* EVDHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549A0DE61AF5BD88007CD13A /* EVDHelpViewController.xib */; };
+		549A0DEB1AF5D443007CD13A /* LogoEraUmaVezUmDesenho.png in Resources */ = {isa = PBXBuildFile; fileRef = 549A0DEA1AF5D443007CD13A /* LogoEraUmaVezUmDesenho.png */; };
+		549A0DF01AF5DC6E007CD13A /* 3pqTXT.txt in Resources */ = {isa = PBXBuildFile; fileRef = 549A0DEC1AF5DC6E007CD13A /* 3pqTXT.txt */; };
+		549A0DF11AF5DC6E007CD13A /* joaoemariaTXT.txt in Resources */ = {isa = PBXBuildFile; fileRef = 549A0DED1AF5DC6E007CD13A /* joaoemariaTXT.txt */; };
+		549A0DF21AF5DC6E007CD13A /* MODELO.txt in Resources */ = {isa = PBXBuildFile; fileRef = 549A0DEE1AF5DC6E007CD13A /* MODELO.txt */; };
+		549A0DF31AF5DC6E007CD13A /* redhoodTXT.txt in Resources */ = {isa = PBXBuildFile; fileRef = 549A0DEF1AF5DC6E007CD13A /* redhoodTXT.txt */; };
 		54EEA9BA1AF4567700E141BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EEA9B91AF4567700E141BF /* main.m */; };
 		54EEA9BD1AF4567700E141BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EEA9BC1AF4567700E141BF /* AppDelegate.m */; };
 		54EEA9BF1AF4567700E141BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54EEA9BE1AF4567700E141BF /* Images.xcassets */; };
@@ -120,6 +129,17 @@
 		549A0DD01AF5874E007CD13A /* EVDBookPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVDBookPageViewController.h; sourceTree = "<group>"; };
 		549A0DD11AF5874E007CD13A /* EVDBookPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVDBookPageViewController.m; sourceTree = "<group>"; };
 		549A0DD21AF5874E007CD13A /* EVDBookPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EVDBookPageViewController.xib; sourceTree = "<group>"; };
+		549A0DD91AF5B8D8007CD13A /* EVDMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVDMenuViewController.h; sourceTree = "<group>"; };
+		549A0DDA1AF5B8D8007CD13A /* EVDMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVDMenuViewController.m; sourceTree = "<group>"; };
+		549A0DDB1AF5B8D8007CD13A /* EVDMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EVDMenuViewController.xib; sourceTree = "<group>"; };
+		549A0DE41AF5BD88007CD13A /* EVDHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVDHelpViewController.h; sourceTree = "<group>"; };
+		549A0DE51AF5BD88007CD13A /* EVDHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVDHelpViewController.m; sourceTree = "<group>"; };
+		549A0DE61AF5BD88007CD13A /* EVDHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EVDHelpViewController.xib; sourceTree = "<group>"; };
+		549A0DEA1AF5D443007CD13A /* LogoEraUmaVezUmDesenho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoEraUmaVezUmDesenho.png; sourceTree = "<group>"; };
+		549A0DEC1AF5DC6E007CD13A /* 3pqTXT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3pqTXT.txt; sourceTree = "<group>"; };
+		549A0DED1AF5DC6E007CD13A /* joaoemariaTXT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = joaoemariaTXT.txt; sourceTree = "<group>"; };
+		549A0DEE1AF5DC6E007CD13A /* MODELO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MODELO.txt; sourceTree = "<group>"; };
+		549A0DEF1AF5DC6E007CD13A /* redhoodTXT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = redhoodTXT.txt; sourceTree = "<group>"; };
 		54EEA9B41AF4567700E141BF /* EraUmaVezUmDesenho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EraUmaVezUmDesenho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54EEA9B81AF4567700E141BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54EEA9B91AF4567700E141BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -242,6 +262,70 @@
 			path = sons;
 			sourceTree = "<group>";
 		};
+		549A0DD51AF5B3A3007CD13A /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				54EEA9F81AF46F9000E141BF /* EVDUser.h */,
+				54EEA9F91AF46F9C00E141BF /* EVDUser.m */,
+				54049EC81AF4B6AB00A0D252 /* EVDSounds.h */,
+				54049EC91AF4B6B500A0D252 /* EVDSounds.m */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+		549A0DD61AF5B3B8007CD13A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				549A0DF41AF5DC78007CD13A /* Texts */,
+				54049ECB1AF4B8F300A0D252 /* Audio */,
+				54EEAA621AF49C9600E141BF /* Images */,
+				54EEAA3A1AF49B1D00E141BF /* Fonts */,
+				54EEAA631AF49D1100E141BF /* AppIcons */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		549A0DD81AF5B459007CD13A /* Codes */ = {
+			isa = PBXGroup;
+			children = (
+				54EEA9F01AF4614B00E141BF /* ViewControllers */,
+				54EEA9E21AF45FE700E141BF /* BookShelf */,
+				549A0DD51AF5B3A3007CD13A /* Others */,
+			);
+			name = Codes;
+			sourceTree = "<group>";
+		};
+		549A0DDE1AF5B8E1007CD13A /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				549A0DD91AF5B8D8007CD13A /* EVDMenuViewController.h */,
+				549A0DDA1AF5B8D8007CD13A /* EVDMenuViewController.m */,
+				549A0DDB1AF5B8D8007CD13A /* EVDMenuViewController.xib */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		549A0DE91AF5BD91007CD13A /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				549A0DE41AF5BD88007CD13A /* EVDHelpViewController.h */,
+				549A0DE51AF5BD88007CD13A /* EVDHelpViewController.m */,
+				549A0DE61AF5BD88007CD13A /* EVDHelpViewController.xib */,
+			);
+			name = Help;
+			sourceTree = "<group>";
+		};
+		549A0DF41AF5DC78007CD13A /* Texts */ = {
+			isa = PBXGroup;
+			children = (
+				549A0DEC1AF5DC6E007CD13A /* 3pqTXT.txt */,
+				549A0DED1AF5DC6E007CD13A /* joaoemariaTXT.txt */,
+				549A0DEF1AF5DC6E007CD13A /* redhoodTXT.txt */,
+				549A0DEE1AF5DC6E007CD13A /* MODELO.txt */,
+			);
+			name = Texts;
+			sourceTree = "<group>";
+		};
 		54EEA9AB1AF4567700E141BF = {
 			isa = PBXGroup;
 			children = (
@@ -265,16 +349,8 @@
 			children = (
 				54EEA9BB1AF4567700E141BF /* AppDelegate.h */,
 				54EEA9BC1AF4567700E141BF /* AppDelegate.m */,
-				54EEA9F81AF46F9000E141BF /* EVDUser.h */,
-				54EEA9F91AF46F9C00E141BF /* EVDUser.m */,
-				54049EC81AF4B6AB00A0D252 /* EVDSounds.h */,
-				54049EC91AF4B6B500A0D252 /* EVDSounds.m */,
-				54EEA9F01AF4614B00E141BF /* ViewControllers */,
-				54EEA9E21AF45FE700E141BF /* BookShelf */,
-				54049ECB1AF4B8F300A0D252 /* Audio */,
-				54EEAA621AF49C9600E141BF /* Images */,
-				54EEAA3A1AF49B1D00E141BF /* Fonts */,
-				54EEAA631AF49D1100E141BF /* AppIcons */,
+				549A0DD81AF5B459007CD13A /* Codes */,
+				549A0DD61AF5B3B8007CD13A /* Resources */,
 				54EEA9BE1AF4567700E141BF /* Images.xcassets */,
 				54EEA9C01AF4567700E141BF /* LaunchScreen.xib */,
 				54EEA9B71AF4567700E141BF /* Supporting Files */,
@@ -340,8 +416,10 @@
 		54EEA9F01AF4614B00E141BF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				54EEA9F11AF4615F00E141BF /* Page */,
+				549A0DDE1AF5B8E1007CD13A /* Menu */,
 				54EEA9F71AF461A600E141BF /* BookPage */,
+				54EEA9F11AF4615F00E141BF /* Page */,
+				549A0DE91AF5BD91007CD13A /* Help */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -397,6 +475,7 @@
 			children = (
 				54EEAA611AF49C7100E141BF /* Covers */,
 				54EEA9FB1AF49A7F00E141BF /* BtnComeçar.png */,
+				549A0DEA1AF5D443007CD13A /* LogoEraUmaVezUmDesenho.png */,
 				54EEA9FD1AF49A7F00E141BF /* btnHelp.png */,
 				54EEA9FE1AF49A7F00E141BF /* BtnNarrar.png */,
 				54EEAA151AF49A7F00E141BF /* shelfBottom.png */,
@@ -588,18 +667,22 @@
 				54EEAA561AF49C0E00E141BF /* c10.png in Resources */,
 				54EEAA331AF49A7F00E141BF /* redhoodCover.png in Resources */,
 				54EEAA551AF49C0E00E141BF /* c9.png in Resources */,
+				549A0DEB1AF5D443007CD13A /* LogoEraUmaVezUmDesenho.png in Resources */,
 				54EEAA4D1AF49C0E00E141BF /* c1.png in Resources */,
 				54EEAA1F1AF49A7F00E141BF /* btnPassarEsq.png in Resources */,
 				54EEA9EF1AF4611700E141BF /* EVDPageViewController.xib in Resources */,
 				54EEAA881AF49D1100E141BF /* Icon.png in Resources */,
+				549A0DF11AF5DC6E007CD13A /* joaoemariaTXT.txt in Resources */,
 				54EEAA361AF49A7F00E141BF /* shelfTop.png in Resources */,
 				54EEAA1B1AF49A7F00E141BF /* Btnfinalizar.png in Resources */,
 				54EEAA2A1AF49A7F00E141BF /* Gravar.png in Resources */,
 				54EEAA7B1AF49D1100E141BF /* Icon-72.png in Resources */,
 				54EEA9C21AF4567700E141BF /* LaunchScreen.xib in Resources */,
+				549A0DF31AF5DC6E007CD13A /* redhoodTXT.txt in Resources */,
 				54EEAA281AF49A7F00E141BF /* FeedbackFinalizar.png in Resources */,
 				54EEAA571AF49C0E00E141BF /* c11.png in Resources */,
 				54EEAA241AF49A7F00E141BF /* Check-01.png in Resources */,
+				549A0DF21AF5DC6E007CD13A /* MODELO.txt in Resources */,
 				54EEAA601AF49C5A00E141BF /* joaoemariaCover.png in Resources */,
 				54EEAA351AF49A7F00E141BF /* shelfMiddle.png in Resources */,
 				54EEAA7A1AF49D1100E141BF /* Icon-60@3x.png in Resources */,
@@ -647,6 +730,7 @@
 				54EEAA8B1AF49D1100E141BF /* iTunesArtwork@2x.png in Resources */,
 				54049ED61AF4B8F300A0D252 /* clickButton.mp3 in Resources */,
 				54EEAA4F1AF49C0E00E141BF /* c3.png in Resources */,
+				549A0DF01AF5DC6E007CD13A /* 3pqTXT.txt in Resources */,
 				54EEAA541AF49C0E00E141BF /* c8.png in Resources */,
 				54EEAA7F1AF49D1100E141BF /* Icon-76@3x.png in Resources */,
 				54EEAA531AF49C0E00E141BF /* c7.png in Resources */,
@@ -656,9 +740,11 @@
 				54EEAA871AF49D1100E141BF /* Icon-Spotlight-40@3x.png in Resources */,
 				54EEAA321AF49A7F00E141BF /* Play.png in Resources */,
 				54EEAA5F1AF49C5A00E141BF /* Iconelapis.png in Resources */,
+				549A0DE81AF5BD88007CD13A /* EVDHelpViewController.xib in Resources */,
 				54EEAA2C1AF49A7F00E141BF /* LegendaIniciar.png in Resources */,
 				54EEAA1A1AF49A7F00E141BF /* BtnComeçar.png in Resources */,
 				54049ED71AF4B8F300A0D252 /* clickLapisEspessura.mp3 in Resources */,
+				549A0DDD1AF5B8D8007CD13A /* EVDMenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,7 +766,9 @@
 				54EEA9DD1AF45EF200E141BF /* EVDBook.m in Sources */,
 				54EEA9D81AF45E8D00E141BF /* EVDPage.m in Sources */,
 				54EEA9BD1AF4567700E141BF /* AppDelegate.m in Sources */,
+				549A0DE71AF5BD88007CD13A /* EVDHelpViewController.m in Sources */,
 				54EEA9BA1AF4567700E141BF /* main.m in Sources */,
+				549A0DDC1AF5B8D8007CD13A /* EVDMenuViewController.m in Sources */,
 				54EEA9FA1AF46F9C00E141BF /* EVDUser.m in Sources */,
 				54EEA9EE1AF4611700E141BF /* EVDPageViewController.m in Sources */,
 				549A0DD31AF5874E007CD13A /* EVDBookPageViewController.m in Sources */,

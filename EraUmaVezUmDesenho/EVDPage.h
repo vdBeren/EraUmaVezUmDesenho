@@ -14,12 +14,11 @@
 
 @property (nonatomic) NSInteger pageNumber;
 @property (nonatomic) NSString* pageText;
-@property (nonatomic) NSString* pageAudioURL;
-@property (nonatomic) NSString* pageBackgroundURL;
 @property (nonatomic) UIImage* pageDraw;
 
 
 - (void) encodeWithCoder:(NSCoder *)pageCoder;
 - (instancetype) initWithCoder:(NSCoder *)pageDecoder;
+- (instancetype) initWithPageNumber:(NSInteger)pageNumber pageText:(NSString *)pageText;
 
 @end

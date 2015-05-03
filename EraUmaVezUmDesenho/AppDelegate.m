@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "EVDMenuViewController.h"
+#import "EVDBookShelf.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,29 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [application setStatusBarHidden:YES];
+    
+    //Inicia musica de fundo
+    NSString *path = [NSString stringWithFormat:@"%@/background.mp3", [[NSBundle mainBundle] resourcePath]];
+    NSURL *soundUrl = [NSURL fileURLWithPath:path];
+    self.background = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
+    self.background.numberOfLoops = -1;
+    [self.background setVolume:0.1];
+    [self.background play];
+    
+    //Delay para mostrar a launchscreen.
+    //[NSThread sleepForTimeInterval:2.0];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    EVDMenuViewController *menu = [[EVDMenuViewController alloc] init];
+    
+    self.navController = [[UINavigationController alloc]initWithRootViewController:menu];
+    self.navController.navigationBarHidden = YES;
+    
+    [self.window setRootViewController:_navController];
+    
+    
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -31,6 +55,14 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    BOOL success = [[EVDBookShelf bookShelf] saveChanges];
+    if (success) {
+        NSLog(@"Livros foram salvos!!");
+    }
+    else{
+        NSLog(@"Livros nao foram salvos :(( !!");
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

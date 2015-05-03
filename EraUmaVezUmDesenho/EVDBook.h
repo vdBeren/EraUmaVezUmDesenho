@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface EVDBook : NSObject <NSCoding>
 
 @property (nonatomic) NSMutableArray* bookPages;
@@ -23,8 +24,10 @@
 @property (nonatomic) NSString* bookCoverURL;
 
 @property (nonatomic) BOOL bookLocked;
+@property (nonatomic) BOOL bookUseImagesAsPages;
 
 - (void) encodeWithCoder:(NSCoder *)bookCoder;
 - (instancetype) initWithCoder:(NSCoder *)bookDecoder;
+- (instancetype) initWithTxtFileAndKey:(NSString *)bookKey bookName:(NSString *)bookName;
 
 @end

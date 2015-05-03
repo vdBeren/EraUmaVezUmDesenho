@@ -6,14 +6,105 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EVDBookPageViewController">
             <connections>
+                <outlet property="btnDir" destination="Dnr-MG-NmU" id="prt-qV-NQo"/>
+                <outlet property="btnEsq" destination="ovf-u1-I1S" id="I7i-ih-zsr"/>
+                <outlet property="btnFinalizar" destination="tgc-CM-jZz" id="yC5-xD-54u"/>
+                <outlet property="btnFinalizarCancelar" destination="tKm-ri-zGy" id="UWg-RG-tLl"/>
+                <outlet property="btnFinalizarOk" destination="36g-gu-ukT" id="3ph-Ax-Hoz"/>
+                <outlet property="btnMenu" destination="1Kx-5t-Fg4" id="vw7-qf-Gqy"/>
+                <outlet property="imageCheckViewAlert" destination="6Hv-kP-5aH" id="QYU-bl-vzO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewAlertFinalizar" destination="Rdb-Q9-gTq" id="Kjn-L9-FZ3"/>
+                <outlet property="viewPage" destination="24a-eP-FgK" id="657-Y1-Afx"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24a-eP-FgK" userLabel="viewPage">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kx-5t-Fg4" userLabel="btnHome">
+                    <rect key="frame" x="24" y="24" width="60" height="55"/>
+                    <state key="normal" backgroundImage="home.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnMenu:" destination="-1" eventType="touchUpInside" id="P85-Ff-Htd"/>
+                    </connections>
+                </button>
+                <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dnr-MG-NmU" userLabel="btnDir">
+                    <rect key="frame" x="946" y="304" width="80" height="160"/>
+                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" backgroundImage="btnPassar.png">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="touchBtnDir:" destination="-1" eventType="touchUpInside" id="b5V-4S-23p"/>
+                    </connections>
+                </button>
+                <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovf-u1-I1S" userLabel="btnEsq">
+                    <rect key="frame" x="0.0" y="304" width="80" height="160"/>
+                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" backgroundImage="btnPassarEsq.png"/>
+                    <connections>
+                        <action selector="touchBtnEsq:" destination="-1" eventType="touchUpInside" id="iho-e4-avg"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgc-CM-jZz" userLabel="btnFinalizar">
+                    <rect key="frame" x="857" y="29" width="130" height="46"/>
+                    <state key="normal" backgroundImage="Btnfinalizar.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnFinalizar:" destination="-1" eventType="touchUpInside" id="j4g-pj-PNv"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rdb-Q9-gTq" userLabel="viewFinalizar">
+                    <rect key="frame" x="279" y="234" width="466" height="301"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36g-gu-ukT" userLabel="btnCheck">
+                            <rect key="frame" x="63" y="220" width="108" height="62"/>
+                            <state key="normal" image="Check-01.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="btnFinalizarOk:" destination="-1" eventType="touchUpInside" id="j75-tm-c3a"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FeedbackFinalizar.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Hv-kP-5aH">
+                            <rect key="frame" x="15" y="0.0" width="437" height="212"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKm-ri-zGy" userLabel="btnCancel">
+                            <rect key="frame" x="294" y="220" width="109" height="62"/>
+                            <state key="normal" image="X-01.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="btnFinalizarCancelar:" destination="-1" eventType="touchUpInside" id="Fa3-dC-eE2"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
         </view>
     </objects>
+    <resources>
+        <image name="Btnfinalizar.png" width="195" height="71"/>
+        <image name="Check-01.png" width="404" height="253"/>
+        <image name="FeedbackFinalizar.png" width="912" height="329"/>
+        <image name="X-01.png" width="404" height="253"/>
+        <image name="btnPassar.png" width="144" height="285"/>
+        <image name="btnPassarEsq.png" width="144" height="285"/>
+        <image name="home.png" width="155" height="153"/>
+    </resources>
 </document>

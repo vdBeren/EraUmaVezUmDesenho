@@ -18,7 +18,7 @@
 
 @implementation EVDBookShelf
 
-+ (instancetype)EVDBookShelf
++ (instancetype)bookShelf
 {
     static EVDBookShelf *bookShelf = nil;
     if (!bookShelf) {
@@ -41,7 +41,14 @@
 {
     self = [super init];
     if (self) {
-        _bookShelf = [[NSMutableDictionary alloc] init];
+        
+        NSString *path = [self bookArchivePath];
+        _bookShelf = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        
+        // If the array hadn't been saved previously, create a new empty one
+        if (!_bookShelf) {
+            _bookShelf = [[NSMutableDictionary alloc] init];
+        }
     }
     return self;
 }
@@ -63,9 +70,27 @@
     [self.bookShelf removeObjectForKey:key];
 }
 
--(unsigned long) bookTotal{
+-(NSInteger) bookTotal{
     return [self.bookShelf count];
     
+}
+
+-(BOOL) saveChanges{
+    NSString *path = [self bookArchivePath];
+    //Return YES on success
+    return [NSKeyedArchiver archiveRootObject:self.bookShelf toFile:path];
+}
+
+- (NSString *)bookArchivePath
+{
+    // Make sure that the first argument is NSDocumentDirectory
+    // and not NSDocumentationDirectory
+    NSArray *documentDirectories =
+    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                        NSUserDomainMask, YES);
+    // Get the one document directory from that list
+    NSString *documentDirectory = [documentDirectories firstObject];
+    return [documentDirectory stringByAppendingPathComponent:@"books.archive"];
 }
 
 @end

@@ -49,5 +49,7 @@
 -(void) setCurrentPage:(EVDPage *)currentPage;
 -(void) setCurrentBookKey:(NSString *)currentBookKey;
 -(void) setButtonsSettingsForCurrentUser;
+-(void) stopPlayer;
+-(BOOL) isRecording;
 
 @end
