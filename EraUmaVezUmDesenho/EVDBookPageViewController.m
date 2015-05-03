@@ -38,8 +38,9 @@
     
     
     [_pageViewController setCurrentBookKey:[_currentBook bookKey]];
-    [self changePage];
     [_viewPage addSubview:[_pageViewController view]];
+    [self changePage];
+    
     
     [self setButtonsSettingsForCurrentUser];
     
@@ -107,7 +108,7 @@
 }
 
 - (IBAction)touchBtnDir:(id)sender{
-    if(_bookPageIndex >= _bookPageTotal-1 || [_pageViewController isRecording]){
+    if(_bookPageIndex >= [_currentBook bookPageTotal]-1 || [_pageViewController isRecording]){
         return;
     }
     
@@ -115,7 +116,7 @@
     [_btnEsq setHidden:NO];
     
     
-    if (_bookPageIndex == _bookPageTotal-2) {
+    if (_bookPageIndex == [_currentBook bookPageTotal]-2) {
         [_btnFinalizar setHidden:NO];
         [_btnDir setHidden:YES];
     }
@@ -131,7 +132,7 @@
     
     [_buttonSounds playClique:5];
     [_viewAlertFinalizar setHidden:NO];
-    [_imageCheckViewAlert setHidden:YES];
+    [_imageCheckViewAlert setHidden:NO];
     
 }
 

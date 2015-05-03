@@ -30,6 +30,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *bgView;
 @property (weak, nonatomic) IBOutlet UIImageView *drawView;
+@property (nonatomic) UIImageView *drawBottomView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageLabelPlayPause;
 @property (weak, nonatomic) IBOutlet UIImageView *imageLabelStop;
 @property (weak, nonatomic) IBOutlet UIImageView *imageLabelRecord;

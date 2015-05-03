@@ -13,8 +13,9 @@
 @interface EVDPage : NSObject <NSCoding>
 
 @property (nonatomic) NSInteger pageNumber;
-@property (nonatomic) NSString* pageText;
-@property (nonatomic) UIImage* pageDraw;
+@property (nonatomic) NSString *pageText;
+@property (nonatomic) UIImage *pageDraw;
+@property (nonatomic) UIImage *pageDrawBottom;
 
 
 - (void) encodeWithCoder:(NSCoder *)pageCoder;

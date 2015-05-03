@@ -38,8 +38,7 @@
     _buttonsSounds = [[EVDSounds alloc] init];
     _helpViewController = [[EVDHelpViewController alloc] init];
     _bookViewController = [[EVDBookPageViewController alloc] init];
-    
-    [self createStandardBooks];
+    _bookShelfButtons = [[NSMutableArray alloc] init];
     
     _viewContent = [[UIView alloc] initWithFrame:_scrollViewShelf.bounds];
     _imageViewShelf = [[UIImageView alloc] initWithFrame:_scrollViewShelf.bounds];
@@ -51,6 +50,7 @@
     shelfMiddle = [UIImage imageNamed:@"shelfMiddle.png"];
     shelfBottom = [UIImage imageNamed:@"shelfBottom.png"];
     
+    [self createStandardBooks];
     [self sortShelfButtonArray];
     
     // -- Seleciona o livro 1 de começo.
@@ -275,7 +275,7 @@
             
             coverUrl = [[[EVDBookShelf bookShelf]bookForKey:[NSString stringWithFormat:@"%d", j]]bookCoverURL];
             
-            [btnBook setTitle:@"BUTTON" forState:UIControlStateNormal];
+            //[btnBook setTitle:@"BUTTON" forState:UIControlStateNormal];
             [btnBook setBackgroundImage: [UIImage imageNamed:coverUrl]
                                forState:UIControlStateNormal];
             [_bookShelfButtons addObject:btnBook];
@@ -287,6 +287,7 @@
     
     for(UIButton *btnBook in _bookShelfButtons){
         [_viewContent addSubview:btnBook];
+        
         [btnBook addTarget:self action:@selector(selectedButton:) forControlEvents:UIControlEventTouchUpInside];
     }
 }

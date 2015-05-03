@@ -19,7 +19,6 @@
 @property (nonatomic) NSString *bookKey;
 
 @property (nonatomic) NSInteger bookPageIndex;
-@property (nonatomic) NSInteger bookPageTotal;
 
 @property (nonatomic) IBOutlet UIView  *viewAlertFinalizar;
 @property (weak, nonatomic) IBOutlet UIButton *btnFinalizarOk;

@@ -28,6 +28,8 @@
     _currentUser = [EVDUser instance];
     _delegate = ( AppDelegate* )[UIApplication sharedApplication].delegate;
     _buttonSounds = [[EVDSounds alloc] init];
+    _btnColorFan = [[NSMutableArray alloc] init];
+    _btnWidthFan = [[NSMutableArray alloc] init];
     
     fetchAudio = NO;
     fetchRecord = NO;
@@ -37,7 +39,7 @@
     imagePause = [UIImage imageNamed:@"Pausar.png"];
     imagePlay = [UIImage imageNamed:@"Play.png"];
     imageRecord = [UIImage imageNamed:@"Gravar.png"];
-    imageStop = [UIImage imageNamed:@"Stop.ong"];
+    imageStop = [UIImage imageNamed:@"Stop.png"];
     
     //Se for pai, libera botao de gravação.
     if ([_currentUser currentUser] == 1) {
@@ -46,7 +48,7 @@
     
     [_btnPlay setEnabled:YES];
     
-    
+    [self createButtonsLeque];
     [self loadImageSettings];
 }
 
@@ -59,8 +61,10 @@
     _currentPage = currentPage;
     
     [self bgView].image = [UIImage imageNamed:@"Fundo.png"];
+    [self setPageText:[_currentPage pageText] textIndex:[NSString stringWithFormat:@"%ld",[_currentPage pageNumber]+1]];
+    [self drawView].image = [_currentPage pageDraw];
     
-    [self setPageText:[_currentPage pageText] textIndex:[NSString stringWithFormat:@"%ld",[_currentPage pageNumber]]];
+    [self viewDidLayoutSubviews];
 }
 
 -(void) setCurrentBookKey:(NSString *)currentBookKey{
@@ -69,7 +73,7 @@
 
 - (void) setButtonsSettingsForCurrentUser {
     
-    if ([self.currentUser currentUser] == 0) {
+    if ([_currentUser currentUser] == 0) {
         [_btnStop setEnabled:NO];
         [_btnRecordPause setEnabled:NO];
         [self setImagensButtonsFilho];
@@ -78,11 +82,11 @@
         [_btnRecordPause setEnabled:YES];
         [self setImagensButtonsPai];
         
-//        for(UIButton *btnCor in self.btnColorFan)
-//            [btnCor setHidden:YES];
-//        
-//        for(UIButton *btnEspessura in self.btnWidthFan)
-//            [btnEspessura setHidden:YES];
+        for(UIButton *btnCor in self.btnColorFan)
+            [btnCor setHidden:YES];
+        
+        for(UIButton *btnEspessura in self.btnWidthFan)
+            [btnEspessura setHidden:YES];
     }
 }
 
@@ -96,7 +100,9 @@
     _drawImage.image = [defaults objectForKey:@"drawImageKey"];
     _drawImage = [[UIImageView alloc] initWithImage:nil];
     _drawImage.frame = _drawView.frame;
+    _drawView.image = [_currentPage pageDraw];
     [_drawView addSubview:_drawImage];
+    
     
 }
 
@@ -155,18 +161,18 @@
     
     //Se for pai, desenha mais opaco
     if ([_currentUser currentUser] == 1) {
-        _drawImage.alpha = 0.3;
+        _drawImage.alpha = 0.2;
     }
     else{
         _drawImage.alpha = 0.7;
     }
     _drawImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
+
     [_drawView addSubview:_drawImage];
     
     // Coloca a imagem desenhada no pageDraw da página atual.
-    _currentPage.pageDraw = _drawView.image;
+    _currentPage.pageDraw = _drawImage.image;
     
     //[self.view sendSubviewToBack:drawImage];
     
@@ -288,7 +294,7 @@
         
     }
     else {
-        [self.delegate.background play];
+        [_delegate.background play];
         [_audioRecorder pause];
         [self recordPauseConfig];
         
@@ -448,10 +454,10 @@
     
     if (![_btnColorBox isSelected]) {
         [[self btnColorBox] setAlpha:0.4];
-        for(UIButton *btnCor in self.btnColorFan){
+        for(UIButton *btnCor in _btnColorFan){
             [btnCor setHidden:NO];
         }
-        for(UIButton *btnEspessura in self.btnWidthFan){
+        for(UIButton *btnEspessura in _btnWidthFan){
             [btnEspessura setHidden:NO];
         }
         
@@ -460,10 +466,10 @@
     
     else{
         [[self btnColorBox] setAlpha:1];
-        for(UIButton *btnCor in self.btnColorFan){
+        for(UIButton *btnCor in _btnColorFan){
             [btnCor setHidden:YES];
         }
-        for(UIButton *btnEspessura in self.btnWidthFan){
+        for(UIButton *btnEspessura in _btnWidthFan){
             [btnEspessura setHidden:YES];
         }
         
@@ -473,7 +479,7 @@
 
 - (void)btnCor:(id)sender{
     
-    [self.buttonSounds playClique:7];
+    [_buttonSounds playClique:7];
     
     [self corSelecionada:[sender tag]];
     selectedColor = [sender tag];
@@ -485,7 +491,7 @@
     
     for (int i = 0; i < qntdCor; i++) {
         if (i != [sender tag]) {
-            btnAux = [self.btnColorFan objectAtIndex:i];
+            btnAux = [_btnColorFan objectAtIndex:i];
             btnAux.frame = CGRectMake(i*(w)+margin+w, self.view.frame.size.height - h/2 - margin + 25, w-20, h+20);
         }
     }
