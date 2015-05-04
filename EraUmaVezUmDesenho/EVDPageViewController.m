@@ -9,7 +9,6 @@
 #import "EVDPageViewController.h"
 #import "EVDUser.h"
 #import "EVDSounds.h"
-#import "EVDDrawViewController.h"
 #import "AppDelegate.h"
 
 @interface EVDPageViewController ()
@@ -17,7 +16,8 @@
 @property (nonatomic) EVDUser *currentUser;
 @property (nonatomic) AppDelegate *delegate;
 @property (nonatomic) EVDSounds *buttonSounds;
-@property (nonatomic) EVDDrawViewController *drawViewController;
+@property (nonatomic) UIImageView *drawView;
+
 
 @end
 
@@ -30,7 +30,7 @@
     _currentUser = [EVDUser instance];
     _delegate = ( AppDelegate* )[UIApplication sharedApplication].delegate;
     _buttonSounds = [[EVDSounds alloc] init];
-    _drawViewController = [[EVDDrawViewController alloc] init];
+    
     _btnColorFan = [[NSMutableArray alloc] init];
     _btnWidthFan = [[NSMutableArray alloc] init];
     
@@ -44,6 +44,12 @@
     imageRecord = [UIImage imageNamed:@"Gravar.png"];
     imageStop = [UIImage imageNamed:@"Stop.png"];
     
+    [self createButtonsLeque];
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
     //Se for pai, libera botao de gravação.
     if ([_currentUser currentUser] == 1) {
         [_btnRecordPause setEnabled:YES];
@@ -51,10 +57,11 @@
     
     [_btnPlay setEnabled:YES];
     
-    [_drawViewController setCurrentPage:_currentPage];
-    [_drawView addSubview:[_drawViewController view]];
+    [self setButtonsSettingsForCurrentUser];
+    [self loadImageSettings];
     
-    [self createButtonsLeque];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,12 +72,9 @@
 -(void) setCurrentPage:(EVDPage *)currentPage{
     _currentPage = currentPage;
     
-    [self bgView].image = [UIImage imageNamed:@"Fundo.png"];
+    [self setDrawsForUser];
+    _bgView.image = [UIImage imageNamed:@"Fundo.png"]; // TODO: Adicionar fundo por pagina
     [self setPageText:[_currentPage pageText] textIndex:[NSString stringWithFormat:@"%ld",[_currentPage pageNumber]+1]];
-    
-    [_drawViewController setCurrentPage:_currentPage];
-    
-    [self viewDidLayoutSubviews];
 }
 
 -(void) setCurrentBookKey:(NSString *)currentBookKey{
@@ -95,6 +99,109 @@
             [btnEspessura setHidden:YES];
     }
 }
+
+-(void) setDrawsForUser{
+    
+    [_drawViewBottom setAlpha:0.2];
+    [_drawViewTop setAlpha:0.7];
+    _drawViewTop.image = _currentPage.pageDrawTop;
+    _drawViewBottom.image = _currentPage.pageDrawBottom;
+    _drawView = _drawViewBottom;
+    _drawImage.image = nil;
+
+}
+
+-(void)loadImageSettings{
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _drawImage.image = [defaults objectForKey:@"drawImageKey"];
+    _drawImage = [[UIImageView alloc] initWithImage:nil];
+    _drawImage.frame = _drawView.frame;
+    [_drawViewBottom addSubview:_drawImage];
+    [_drawViewTop addSubview:_drawImage];
+    
+    
+    
+}
+
+
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    
+    _touchCurrentPoint = [touch locationInView:touch.view];
+    _touchLastPoint = [touch locationInView:_drawView];
+    
+    [self drawInViewCurrentPoint:_touchCurrentPoint lastPoint:_touchLastPoint];
+    
+    [super touchesBegan: touches withEvent: event];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+    _touchCurrentPoint = [touch locationInView:_drawView];
+    
+    [self drawInViewCurrentPoint:_touchCurrentPoint lastPoint:_touchLastPoint];
+    
+    _touchLastPoint = _touchCurrentPoint;
+}
+
+
+- (void) drawInViewCurrentPoint:(CGPoint)currentPoint lastPoint:(CGPoint)lastPoint{
+    
+    
+    //Contexto da caixa de desenho.
+    UIGraphicsBeginImageContext(_drawView.frame.size);
+    [_drawImage.image drawInRect:_drawView.bounds];
+    
+    //Define a forma, tamanho e cor da linha.
+    
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), _brushWidth);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), r, g, b, alpha);
+    
+    // Altera o contexto de desenho.
+    CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeNormal);
+    
+    //Começa o caminho de desenho.
+    CGContextBeginPath(UIGraphicsGetCurrentContext());
+    
+    //Move para o ponto de desenho e adiciona linha entre o ultimo e atual ponto.
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
+    
+    
+    //Desenha o caminho.
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    
+    //Define o tamanho da caixa de desenho.
+    [_drawImage setFrame:_drawView.bounds];
+    
+    _drawImage.image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    
+    // Coloca a imagem desenhada no pageDraw da página atual.
+    if ([_currentUser currentUser] == 1) {
+        [_drawViewBottom addSubview:_drawImage];
+        [_currentPage setPageDrawBottom:_drawImage.image];
+    }
+    else{
+        [_drawViewTop addSubview:_drawImage];
+        [_currentPage setPageDrawTop:_drawImage.image];
+    }
+    
+    
+    //[self.view sendSubviewToBack:drawImage];
+    
+}
+
+
 
 -(BOOL) isRecording{
     return _audioRecorder.recording;
@@ -159,14 +266,14 @@
 
 - (IBAction)recordPauseTapped:(id)sender {
     
-    //    para a reproducao do audio antes de comecar a gravar
+    //    Para a reproducao do audio antes de comecar a gravar
     if (_audioPlayer.playing) {
         [_audioPlayer stop];
     }
     
     if (!_audioRecorder.recording) {
         
-        [_delegate.background stop];
+        [_delegate.background pause];
         
         if (fetchRecord == NO) {
             
@@ -174,7 +281,7 @@
             NSArray *pathComponents = [NSArray arrayWithObjects:
                                        [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
                                        [NSString stringWithFormat:@"Book%@PageAudio%ld.m4a", _currentBookKey, [_currentPage pageNumber]], nil ];
-        
+            
             NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
             
             //    definindo sessao de audio
@@ -460,7 +567,6 @@
             r = 11.0/255; g = 12.0/255; b = 12.0/255;
     }
     
-    [_drawViewController setDrawingColorRed:r Green:g Blue:b Alpha:alpha];
     
 }
 
@@ -477,18 +583,18 @@
     
     switch (selecao) {
         case 0:
-            brushWidth = 8;
+            _brushWidth = 8;
             break;
         case 1:
-            brushWidth = 12;
+            _brushWidth = 12;
             break;
         case 2:
-            brushWidth = 18;
+            _brushWidth = 18;
             break;
         default:
-            brushWidth = 12;
+            _brushWidth = 12;
     }
-    [_drawViewController setBrushWidth:brushWidth];
+    
 }
 
 
@@ -507,13 +613,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

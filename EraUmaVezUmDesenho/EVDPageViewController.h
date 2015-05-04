@@ -14,11 +14,22 @@
 {
     
     float r, g, b, alpha;
-    NSInteger brushWidth, selectedColor, selectedWidth;
+    NSInteger selectedColor, selectedWidth;
     UIImage *imageRecord, *imagePause, *imagePlay, *imageStop, *imageNarrate, *imageNarratePause;
     NSURL *temporaryRecFileURL;
     BOOL fetchAudio, fetchRecord;
 }
+
+
+@property (nonatomic) NSInteger brushWidth;
+
+@property (nonatomic) CGPoint touchLastPoint;
+@property (nonatomic) CGPoint touchCurrentPoint;
+@property (nonatomic) CGPoint touchLocation;
+
+@property (nonatomic) UIImageView *drawImage;
+@property (nonatomic) IBOutlet UIImageView *drawViewTop;
+@property (nonatomic) IBOutlet UIImageView *drawViewBottom;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *btnRecordPause;
@@ -27,7 +38,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnColorBox;
 
 @property (weak, nonatomic) IBOutlet UIImageView *bgView;
-@property (weak, nonatomic) IBOutlet UIImageView *drawView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageLabelPlayPause;
 @property (weak, nonatomic) IBOutlet UIImageView *imageLabelStop;

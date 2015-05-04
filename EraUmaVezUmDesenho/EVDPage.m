@@ -22,6 +22,8 @@
     if (self) {
         _pageNumber = pageNumber;
         _pageText = pageText;
+        _pageDrawBottom = [[UIImage alloc] init];
+        _pageDrawTop = [[UIImage alloc] init];
     }
     return self;
 }
@@ -29,6 +31,8 @@
 - (instancetype)initWithCoder:(NSCoder *)pageDecoder{
     self = [super init];
     if (self) {
+        _pageDrawBottom = [[UIImage alloc] init];
+        _pageDrawTop = [[UIImage alloc] init];
         _pageText = [pageDecoder decodeObjectForKey:@"pageText"];
         _pageNumber = [pageDecoder decodeIntForKey:@"pageNumber"];
         _pageDrawTop = [UIImage imageWithData:[pageDecoder decodeObjectForKey:@"pageDrawTop"]];

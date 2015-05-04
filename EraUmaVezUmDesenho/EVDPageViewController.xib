@@ -19,7 +19,8 @@
                 <outlet property="btnPlay" destination="YXY-cS-XIl" id="oen-gN-iKG"/>
                 <outlet property="btnRecordPause" destination="HdA-P6-77M" id="GzS-56-gDK"/>
                 <outlet property="btnStop" destination="7uk-bT-00J" id="nYc-Ch-AF8"/>
-                <outlet property="drawView" destination="spf-mI-vOW" id="1OT-s5-xsm"/>
+                <outlet property="drawViewBottom" destination="spf-mI-vOW" id="whY-pG-HsE"/>
+                <outlet property="drawViewTop" destination="PDi-OS-QaB" id="7p2-Wz-ukO"/>
                 <outlet property="imageLabelPlayPause" destination="gsx-8q-jwq" id="UEC-7S-qJP"/>
                 <outlet property="imageLabelRecord" destination="1BJ-U0-mQc" id="PP6-IE-vQu"/>
                 <outlet property="imageLabelStop" destination="7Xk-Qn-kFh" id="wrx-J3-vmD"/>
@@ -36,7 +37,10 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HnM-AY-Vd2" userLabel="bgView">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                 </imageView>
-                <imageView multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="spf-mI-vOW" userLabel="drawView">
+                <imageView multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="spf-mI-vOW" userLabel="drawViewBottom">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                </imageView>
+                <imageView multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PDi-OS-QaB" userLabel="drawViewTop">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                 </imageView>
                 <button opaque="NO" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQB-Nw-a6X" userLabel="btnColorBox">

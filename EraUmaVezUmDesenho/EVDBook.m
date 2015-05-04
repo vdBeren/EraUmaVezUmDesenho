@@ -21,6 +21,7 @@
     self = [super init];
     
     if (self) {
+        _bookPages = [[NSMutableArray alloc] init];
         _bookKey = bookKey;
         _bookName = bookName;
         _bookLocked = NO;
@@ -76,6 +77,7 @@
     
     int lineCount = 0, pageCount = 0;
     for (NSString *line in [descriptionContent componentsSeparatedByString:@"\n"]) {
+        //NSLog(@"%@", line);
         switch (lineCount) {
             case 0:
                 _bookFantasyName = line;

@@ -38,8 +38,8 @@
     
     
     [_pageViewController setCurrentBookKey:[_currentBook bookKey]];
+    [self addChildViewController:_pageViewController];
     [_viewPage addSubview:[_pageViewController view]];
-    [self changePage];
     
     
     [self setButtonsSettingsForCurrentUser];
@@ -53,10 +53,14 @@
 
 
 - (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     [_btnDir setAlpha:0.2];
     [_btnEsq setAlpha:0.2];
     
-    [super viewWillAppear:YES];
+    [self changePage];
+    
+    
     
 }
 
