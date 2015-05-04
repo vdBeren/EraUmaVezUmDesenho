@@ -110,7 +110,7 @@
     
     // Cria os livros padrão do aplicativo, apenas se jã não existir livros na estante.
     
-    if (!([[EVDBookShelf bookShelf] bookTotal] > 0)) {
+    if ([[EVDBookShelf bookShelf] bookTotal] <= 0) {
         [self createBookWithBookTotalPages:14 bookName:@"3pq"];
         [self createBookWithBookTotalPages:10 bookName:@"redhood"];
         [self createBookWithBookTotalPages:24 bookName:@"joaoemaria"];

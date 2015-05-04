@@ -60,8 +60,12 @@
     [self setButtonsSettingsForCurrentUser];
     [self loadImageSettings];
     
-    
-    
+}
+
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    [_lblPageText sizeToFit];
+    [_lblPageIndex sizeToFit];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,12 +95,6 @@
     else {
         [_btnRecordPause setEnabled:YES];
         [self setImagensButtonsPai];
-        
-        for(UIButton *btnCor in self.btnColorFan)
-            [btnCor setHidden:YES];
-        
-        for(UIButton *btnEspessura in self.btnWidthFan)
-            [btnEspessura setHidden:YES];
     }
 }
 
@@ -113,15 +111,12 @@
 
 -(void)loadImageSettings{
     
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     _drawImage.image = [defaults objectForKey:@"drawImageKey"];
     _drawImage = [[UIImageView alloc] initWithImage:nil];
     _drawImage.frame = _drawView.frame;
     [_drawViewBottom addSubview:_drawImage];
     [_drawViewTop addSubview:_drawImage];
-    
-    
     
 }
 
@@ -180,6 +175,8 @@
     
     //Define o tamanho da caixa de desenho.
     [_drawImage setFrame:_drawView.bounds];
+    
+    //[_currentPage]
     
     _drawImage.image = UIGraphicsGetImageFromCurrentImageContext();
     
@@ -273,7 +270,7 @@
     
     if (!_audioRecorder.recording) {
         
-        [_delegate.background pause];
+        [_delegate.background stop];
         
         if (fetchRecord == NO) {
             
@@ -598,11 +595,6 @@
 }
 
 
-
-- (void)viewDidLayoutSubviews{
-    [_lblPageText sizeToFit];
-    [_lblPageIndex sizeToFit];
-}
 
 - (void) setPageText:(NSString*)text textIndex:(NSString*)textIndex{
     [_lblPageText setHidden:NO];

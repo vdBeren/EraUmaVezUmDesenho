@@ -60,8 +60,14 @@
     
     [self changePage];
     
+}
+
+- (void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
     
-    
+    _bookPageIndex = 0;
+    [self setButtonsSettingsForCurrentUser];
+    [self changePage];
 }
 
 - (void) setCurrentBook:(EVDBook *)currentBook{

@@ -85,8 +85,7 @@
 {
     // Make sure that the first argument is NSDocumentDirectory
     // and not NSDocumentationDirectory
-    NSArray *documentDirectories =
-    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
     // Get the one document directory from that list
     NSString *documentDirectory = [documentDirectories firstObject];
