@@ -58,6 +58,9 @@
     
     [_btnPlay setEnabled:YES];
     
+    [_drawViewBottom setAlpha:0.2];
+    [_drawViewTop setAlpha:0.7];
+    
     [self setButtonsSettingsForCurrentUser];
     [self loadImageSettings];
     
@@ -79,8 +82,9 @@
     
     fetchAudio = NO;
     fetchRecord = NO;
+    
     [self setDrawsForUser];
-    _bgView.image = [UIImage imageNamed:@"Fundo.png"]; // TODO: Adicionar fundo por pagina
+    [self setBackgroundImage];
     [self setPageText:[_currentPage pageText] textIndex:[NSString stringWithFormat:@"%ld",(long)[_currentPage pageNumber]+1]];
 }
 
@@ -101,10 +105,13 @@
     }
 }
 
+-(void) setBackgroundImage{
+    // TODO: Adicionar fundo por pagina
+    _bgView.image = [UIImage imageNamed:@"Fundo.png"];
+}
+
 -(void) setDrawsForUser{
     
-    [_drawViewBottom setAlpha:0.2];
-    [_drawViewTop setAlpha:0.7];
     _drawViewTop.image = _currentPage.pageDrawTop;
     _drawViewBottom.image = _currentPage.pageDrawBottom;
     _drawView = _drawViewBottom;
@@ -124,10 +131,9 @@
 }
 
 
-
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    UITouch *touch = [[event allTouches] anyObject];
+    UITouch *touch = [touches anyObject];
     
     _touchCurrentPoint = [touch locationInView:touch.view];
     _touchLastPoint = [touch locationInView:_drawView];
@@ -137,7 +143,7 @@
     [super touchesBegan: touches withEvent: event];
 }
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
     UITouch *touch = [touches anyObject];
     _touchCurrentPoint = [touch locationInView:_drawView];
@@ -147,9 +153,39 @@
     _touchLastPoint = _touchCurrentPoint;
 }
 
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    // Coloca a imagem desenhada + o desenho do pageDraw (bottom ou top) anterior no pageDraw da página atual.
+    UIGraphicsBeginImageContext(_drawView.frame.size);
+    
+    if ([_currentUser currentUser] == 1) {
+        [[_currentPage pageDrawBottom] drawInRect:_drawView.bounds];
+        [_drawImage.image drawInRect:_drawView.bounds];
+        
+        _drawImage.image = UIGraphicsGetImageFromCurrentImageContext();
+        
+        [_drawViewBottom addSubview:_drawImage];
+        [_currentPage setPageDrawBottom:_drawImage.image];
+    }
+    else{
+        [[_currentPage pageDrawTop] drawInRect:_drawView.bounds];
+        [_drawImage.image drawInRect:_drawView.bounds];
+        
+        _drawImage.image = UIGraphicsGetImageFromCurrentImageContext();
+        
+        [_drawViewTop addSubview:_drawImage];
+        [_currentPage setPageDrawTop:_drawImage.image];
+    }
+    
+    UIGraphicsEndImageContext();
+
+}
+
+-(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self touchesEnded:touches withEvent:event];
+}
 
 - (void) drawInViewCurrentPoint:(CGPoint)currentPoint lastPoint:(CGPoint)lastPoint{
-    
     
     //Contexto da caixa de desenho.
     UIGraphicsBeginImageContext(_drawView.frame.size);
@@ -179,23 +215,9 @@
     //Define o tamanho da caixa de desenho.
     [_drawImage setFrame:_drawView.bounds];
     
-    //[_currentPage]
-    
     _drawImage.image = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
-    
-    
-    // Coloca a imagem desenhada no pageDraw da página atual.
-    if ([_currentUser currentUser] == 1) {
-        [_drawViewBottom addSubview:_drawImage];
-        [_currentPage setPageDrawBottom:_drawImage.image];
-    }
-    else{
-        [_drawViewTop addSubview:_drawImage];
-        [_currentPage setPageDrawTop:_drawImage.image];
-    }
-    
     
     //[self.view sendSubviewToBack:drawImage];
     

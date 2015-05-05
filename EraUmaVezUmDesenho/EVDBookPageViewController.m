@@ -89,7 +89,11 @@
     [_btnFinalizar setHidden:YES];
     
     if (_bookPageIndex == [_currentBook bookPageTotal]-1) {
-        [_btnFinalizar setHidden:NO];
+        
+        if ([_currentUser currentUser] == 1) {
+            [_btnFinalizar setHidden:NO];
+        }
+
         [_btnDir setHidden:YES];
     }
     else if (_bookPageIndex == 0) {
