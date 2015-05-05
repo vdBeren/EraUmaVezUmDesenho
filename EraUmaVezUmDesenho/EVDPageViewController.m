@@ -10,6 +10,7 @@
 #import "EVDUser.h"
 #import "EVDSounds.h"
 #import "AppDelegate.h"
+#import "EVDSettings.h"
 
 @interface EVDPageViewController ()
 
@@ -34,9 +35,6 @@
     _btnColorFan = [[NSMutableArray alloc] init];
     _btnWidthFan = [[NSMutableArray alloc] init];
     
-    fetchAudio = NO;
-    fetchRecord = NO;
-    
     imageNarrate = [UIImage imageNamed:@"Narrar.png"];
     imageNarratePause = [UIImage imageNamed:@"BtnPausar01.png"];
     imagePause = [UIImage imageNamed:@"Pausar.png"];
@@ -49,6 +47,9 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    fetchAudio = NO;
+    fetchRecord = NO;
     
     //Se for pai, libera botao de gravação.
     if ([_currentUser currentUser] == 1) {
@@ -76,9 +77,11 @@
 -(void) setCurrentPage:(EVDPage *)currentPage{
     _currentPage = currentPage;
     
+    fetchAudio = NO;
+    fetchRecord = NO;
     [self setDrawsForUser];
     _bgView.image = [UIImage imageNamed:@"Fundo.png"]; // TODO: Adicionar fundo por pagina
-    [self setPageText:[_currentPage pageText] textIndex:[NSString stringWithFormat:@"%ld",[_currentPage pageNumber]+1]];
+    [self setPageText:[_currentPage pageText] textIndex:[NSString stringWithFormat:@"%ld",(long)[_currentPage pageNumber]+1]];
 }
 
 -(void) setCurrentBookKey:(NSString *)currentBookKey{
@@ -199,6 +202,11 @@
 }
 
 
+-(void) playBackgroundMusic{
+    if ([EVDSettings getBoolForKey:@"settingsPlayBackgroundMusic"]) {
+        [_delegate.background play];
+    }
+}
 
 -(BOOL) isRecording{
     return _audioRecorder.recording;
@@ -277,7 +285,7 @@
             //    definindo a arquivo de aúdio
             NSArray *pathComponents = [NSArray arrayWithObjects:
                                        [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-                                       [NSString stringWithFormat:@"Book%@PageAudio%ld.m4a", _currentBookKey, [_currentPage pageNumber]], nil ];
+                                       [NSString stringWithFormat:@"Book%@PageAudio%ld.m4a", _currentBookKey, (long)[_currentPage pageNumber]], nil ];
             
             NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
             
@@ -295,7 +303,7 @@
             //Salva o caminho da gravação
             NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
             
-            NSString *namePathRecorder = [NSString stringWithFormat:@"RecorderBook%@Page%ld", _currentBookKey, [_currentPage pageNumber]];
+            NSString *namePathRecorder = [NSString stringWithFormat:@"RecorderBook%@Page%ld", _currentBookKey, (long)[_currentPage pageNumber]];
             
             [prefs setURL:outputFileURL forKey:namePathRecorder];
             [prefs synchronize];
@@ -320,7 +328,7 @@
         
     }
     else {
-        [_delegate.background play];
+        [self playBackgroundMusic];
         [_audioRecorder pause];
         [self recordPauseConfig];
         
@@ -331,7 +339,7 @@
 }
 
 - (IBAction)stopTapped:(id)sender {
-    [_delegate.background play];
+    [self playBackgroundMusic];
     [_audioRecorder stop];
     
     [_btnRecordPause setBackgroundImage:imageRecord forState:UIControlStateNormal];
@@ -357,7 +365,7 @@
             
             NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
             
-            NSString *namePathRecorer = [NSString stringWithFormat:@"RecorderBook%@Page%ld", _currentBookKey, [_currentPage pageNumber]];
+            NSString *namePathRecorer = [NSString stringWithFormat:@"RecorderBook%@Page%ld", _currentBookKey, (long)[_currentPage pageNumber]];
             
             temporaryRecFileURL = [prefs URLForKey:namePathRecorer];
             
@@ -469,8 +477,8 @@
         [btnEspessura setHidden:YES];
     }
     
-    [self corSelecionada:INTMAX_MAX];
-    [self espessuraSelecionada:INTMAX_MAX];
+    [self corSelecionada:-1];
+    [self espessuraSelecionada:-1];
     
 }
 

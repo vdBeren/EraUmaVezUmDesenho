@@ -28,7 +28,6 @@
         [self getBookInformationFromTxt];
         
     }
-    
     return self;
 }
 

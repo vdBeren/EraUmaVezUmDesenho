@@ -66,7 +66,8 @@
     [super viewWillDisappear:animated];
     
     _bookPageIndex = 0;
-    [self setButtonsSettingsForCurrentUser];
+    [_btnDir setHidden:NO];
+    [_viewAlertFinalizar setHidden:YES];
     [self changePage];
 }
 
@@ -79,11 +80,22 @@
         [_btnFinalizar setHidden:YES];
         [_viewAlertFinalizar setHidden:YES];
     }
-
+    
     [_pageViewController setButtonsSettingsForCurrentUser];
 }
 
 - (void) changePage{
+    
+    [_btnFinalizar setHidden:YES];
+    
+    if (_bookPageIndex == [_currentBook bookPageTotal]-1) {
+        [_btnFinalizar setHidden:NO];
+        [_btnDir setHidden:YES];
+    }
+    else if (_bookPageIndex == 0) {
+        [_btnEsq setHidden:YES];
+    }
+    
     _currentPage = [[_currentBook bookPages] objectAtIndex:_bookPageIndex];
     [_pageViewController setCurrentPage:_currentPage];
 }
@@ -104,15 +116,11 @@
     [_pageViewController stopPlayer];
     [_btnDir setHidden:NO];
     
-    if (_bookPageIndex == 1) {
-        [_btnEsq setHidden:YES];
-    }
-    
     _bookPageIndex--;
     
     [self setButtonsSettingsForCurrentUser];
     [self changePage];
-    [_btnFinalizar setHidden:YES];
+    
     [_buttonSounds playClique:4];
     
 }
@@ -124,12 +132,6 @@
     
     [_pageViewController stopPlayer];
     [_btnEsq setHidden:NO];
-    
-    
-    if (_bookPageIndex == [_currentBook bookPageTotal]-2) {
-        [_btnFinalizar setHidden:NO];
-        [_btnDir setHidden:YES];
-    }
     
     _bookPageIndex++;
     

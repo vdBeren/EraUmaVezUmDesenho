@@ -16,6 +16,7 @@
 		54049ED91AF4B8F300A0D252 /* home.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 54049ED11AF4B8F300A0D252 /* home.mp3 */; };
 		54049EDA1AF4B8F300A0D252 /* page.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 54049ED21AF4B8F300A0D252 /* page.mp3 */; };
 		54049EDB1AF4B8F300A0D252 /* pageProx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 54049ED31AF4B8F300A0D252 /* pageProx.mp3 */; };
+		548F0B021AF80F0F006E564E /* EVDSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 548F0B011AF80F0F006E564E /* EVDSettings.m */; };
 		549A0DD31AF5874E007CD13A /* EVDBookPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A0DD11AF5874E007CD13A /* EVDBookPageViewController.m */; };
 		549A0DD41AF5874E007CD13A /* EVDBookPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549A0DD21AF5874E007CD13A /* EVDBookPageViewController.xib */; };
 		549A0DDC1AF5B8D8007CD13A /* EVDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A0DDA1AF5B8D8007CD13A /* EVDMenuViewController.m */; };
@@ -127,6 +128,8 @@
 		54049ED11AF4B8F300A0D252 /* home.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = home.mp3; sourceTree = "<group>"; };
 		54049ED21AF4B8F300A0D252 /* page.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = page.mp3; sourceTree = "<group>"; };
 		54049ED31AF4B8F300A0D252 /* pageProx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pageProx.mp3; sourceTree = "<group>"; };
+		548F0B001AF80F0F006E564E /* EVDSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVDSettings.h; sourceTree = "<group>"; };
+		548F0B011AF80F0F006E564E /* EVDSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVDSettings.m; sourceTree = "<group>"; };
 		549A0DD01AF5874E007CD13A /* EVDBookPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVDBookPageViewController.h; sourceTree = "<group>"; };
 		549A0DD11AF5874E007CD13A /* EVDBookPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVDBookPageViewController.m; sourceTree = "<group>"; };
 		549A0DD21AF5874E007CD13A /* EVDBookPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EVDBookPageViewController.xib; sourceTree = "<group>"; };
@@ -267,6 +270,8 @@
 		549A0DD51AF5B3A3007CD13A /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				548F0B001AF80F0F006E564E /* EVDSettings.h */,
+				548F0B011AF80F0F006E564E /* EVDSettings.m */,
 				54EEA9F81AF46F9000E141BF /* EVDUser.h */,
 				54EEA9F91AF46F9C00E141BF /* EVDUser.m */,
 				54049EC81AF4B6AB00A0D252 /* EVDSounds.h */,
@@ -770,6 +775,7 @@
 				54EEA9DD1AF45EF200E141BF /* EVDBook.m in Sources */,
 				54EEA9D81AF45E8D00E141BF /* EVDPage.m in Sources */,
 				54EEA9BD1AF4567700E141BF /* AppDelegate.m in Sources */,
+				548F0B021AF80F0F006E564E /* EVDSettings.m in Sources */,
 				549A0DE71AF5BD88007CD13A /* EVDHelpViewController.m in Sources */,
 				54EEA9BA1AF4567700E141BF /* main.m in Sources */,
 				549A0DDC1AF5B8D8007CD13A /* EVDMenuViewController.m in Sources */,

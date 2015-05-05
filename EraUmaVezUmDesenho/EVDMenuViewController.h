@@ -21,17 +21,17 @@
 
 @property (nonatomic) UIView *viewContent;
 
-@property (nonatomic) IBOutlet UIScrollView *scrollViewShelf;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollViewShelf;
 
 @property (nonatomic) UIImageView *imageViewShelf;
-@property (nonatomic) IBOutlet UIImageView *imageViewCover;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewCover;
 
-@property (nonatomic) IBOutlet UILabel *lblTitle;
-@property (nonatomic) IBOutlet UILabel *lblDescription;
-@property (nonatomic) IBOutlet UILabel *lblAuthor;
+@property (weak, nonatomic) IBOutlet UILabel *lblTitle;
+@property (weak, nonatomic) IBOutlet UILabel *lblDescription;
+@property (weak, nonatomic) IBOutlet UILabel *lblAuthor;
 
-@property (nonatomic) IBOutlet UIButton *btnFilho;
-@property (nonatomic) IBOutlet UIButton *btnPai;
-@property (nonatomic) IBOutlet UIButton *btnAjuda;
+@property (weak, nonatomic) IBOutlet UIButton *btnFilho;
+@property (weak, nonatomic) IBOutlet UIButton *btnPai;
+@property (weak, nonatomic) IBOutlet UIButton *btnAjuda;
 
 @end

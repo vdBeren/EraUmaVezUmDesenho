@@ -28,8 +28,8 @@
 @property (nonatomic) CGPoint touchLocation;
 
 @property (nonatomic) UIImageView *drawImage;
-@property (nonatomic) IBOutlet UIImageView *drawViewTop;
-@property (nonatomic) IBOutlet UIImageView *drawViewBottom;
+@property (weak, nonatomic) IBOutlet UIImageView *drawViewTop;
+@property (weak, nonatomic) IBOutlet UIImageView *drawViewBottom;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *btnRecordPause;

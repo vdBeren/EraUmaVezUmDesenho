@@ -13,6 +13,7 @@
 #import "EVDBookPageViewController.h"
 #import "EVDHelpViewController.h"
 
+
 @interface EVDMenuViewController (){
     
     UIImage *shelfTop, *shelfBottom, *shelfMiddle;
@@ -178,7 +179,7 @@
 
 - (void) createBookWithBookTotalPages:(NSInteger)bookTotalPages bookName:(NSString*)bookName{
     
-    NSString *key = [NSString stringWithFormat:@"%lu", [EVDBookShelf bookShelf].bookTotal];
+    NSString *key = [NSString stringWithFormat:@"%lu", (long)[EVDBookShelf bookShelf].bookTotal];
     
     //NSLog(@"KEY >> %@", key);
     

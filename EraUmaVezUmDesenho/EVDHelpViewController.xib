@@ -47,8 +47,10 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQl-DC-v3b" userLabel="lblCreditos">
-                    <rect key="frame" x="764" y="557" width="252" height="183"/>
-                    <string key="text">Era uma vez um desenho - v1.0   Criado por: Anderson Silva,  Bruno Fonseca, Mayara Rodrigues,  Victor Savariego.  BEPiD - Senac Santo Amaro.</string>
+                    <rect key="frame" x="764" y="557" width="252" height="196"/>
+                    <string key="text">Era uma vez um desenho - v1.0 
+Four Kids - 2015
+ Anderson Silva,  Bruno Fonseca, Mayara Rodrigues,  Victor Savariego.  BEPiD - Senac Santo Amaro.</string>
                     <fontDescription key="fontDescription" name="SchuboiseHandwrite" family="SchuboiseHandwrite" pointSize="16"/>
                     <color key="textColor" red="0.36160432450000002" green="0.22477007869999999" blue="0.043191358989999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -60,9 +62,9 @@
                     <rect key="frame" x="24" y="203" width="975" height="305"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWq-x3-pjM" userLabel="lblHelpText">
-                            <rect key="frame" x="13" y="0.0" width="954" height="514"/>
+                            <rect key="frame" x="13" y="0.0" width="954" height="550"/>
                             <string key="text">Olá! :)  Se você está vendo isso, então é um pai. Ou pelo menos um adulto. Mas isso não importa agora, imagino, pois você está é interessado em saber como usar este aplicativo, ou só para configurar alguma coisa mesmo. Enfim, seja o que for, vamos lá!  Nossa ideia com esse aplicativo é contar histórias e ao mesmo tempo incentivar a interação dos adultos com as crianças. Permitir uma brincadeira de imaginação e criatividade.  Mas como usar? Bom, nossa proposta é que o adulto deixe narrado uma história para sua criança, para que ela a ouça em momentos em que quem a gravou não esteja presente. Porém, também pode ser usado para contar uma história junto da criança, uma atividade que ensine e incentive a leitura de forma divertida.  O aplicativo ainda está em fase de criação e desenvolvimento e planejamos atualiza-lo ao longo do tempo.  Esperamos que gostem e se divirtam! :D</string>
-                            <fontDescription key="fontDescription" name="SchuboiseHandwrite" family="SchuboiseHandwrite" pointSize="22"/>
+                            <fontDescription key="fontDescription" name="SchuboiseHandwrite" family="SchuboiseHandwrite" pointSize="24"/>
                             <color key="textColor" red="0.36160432450000002" green="0.22477007869999999" blue="0.043191358989999998" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -72,18 +74,21 @@
                     <rect key="frame" x="24" y="557" width="431" height="203"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTE-pj-yMJ" userLabel="lblLog">
-                            <rect key="frame" x="8" y="8" width="415" height="234"/>
-                            <string key="text">Tem alguma crítica ou sugestão? Nos mande uma mensagem em facebook.com/apperaumavezumdesenho ou eraumavezumdesenho.wordpress.com!
+                            <rect key="frame" x="8" y="8" width="415" height="329"/>
+                            <string key="text">Tem alguma crítica ou sugestão? Nos mande uma mensagem em 
+facebook.com/apperaumavezumdesenho!
 
 Recursos Futuros
 
+- Criação de Livros.
+- Mais livros padrão.
 
 Log
 
 v.1.0
 
 - Lançamento do aplicativo.</string>
-                            <fontDescription key="fontDescription" name="SchuboiseHandwrite" family="SchuboiseHandwrite" pointSize="16"/>
+                            <fontDescription key="fontDescription" name="SchuboiseHandwrite" family="SchuboiseHandwrite" pointSize="18"/>
                             <color key="textColor" red="0.36160432450000002" green="0.22477007869999999" blue="0.043191358989999998" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>

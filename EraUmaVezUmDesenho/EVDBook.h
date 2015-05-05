@@ -14,6 +14,7 @@
 @property (nonatomic) NSMutableArray* bookPages;
 
 @property (nonatomic) NSInteger bookPageTotal;
+@property (nonatomic) NSInteger bookCurrentIndex;
 
 @property (nonatomic) NSString* bookName;
 @property (nonatomic) NSString* bookKey;

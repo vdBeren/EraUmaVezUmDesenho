@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "EVDMenuViewController.h"
 #import "EVDBookShelf.h"
+#import "EVDSettings.h"
 
 @interface AppDelegate ()
 
@@ -27,7 +28,10 @@
     _background = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
     _background.numberOfLoops = -1;
     [_background setVolume:0.1];
-    [_background play];
+    
+    if ([EVDSettings getBoolForKey:@"settingsPlayBackgroundMusic"]) {
+        [_background play];
+    }
     
     //Delay para mostrar a launchscreen.
     //[NSThread sleepForTimeInterval:2.0];

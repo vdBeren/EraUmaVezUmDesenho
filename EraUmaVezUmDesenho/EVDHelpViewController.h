@@ -10,12 +10,13 @@
 
 @interface EVDHelpViewController : UIViewController
 
-@property (nonatomic) IBOutlet UIScrollView *scrollViewHelpText;
-@property (nonatomic) IBOutlet UIScrollView *scrollViewLog;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollViewHelpText;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollViewLog;
 
-@property (nonatomic) IBOutlet UISwitch *switchBGMusic;
+@property (weak, nonatomic) IBOutlet UISwitch *switchBGMusic;
 
-@property (nonatomic) IBOutlet UILabel *lblHelpText;
-@property (nonatomic) IBOutlet UILabel *lblLog;
+@property (weak, nonatomic) IBOutlet UILabel *lblHelpText;
+@property (weak, nonatomic) IBOutlet UILabel *lblLog;
+
 
 @end

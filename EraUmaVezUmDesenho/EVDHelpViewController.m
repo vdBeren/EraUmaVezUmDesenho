@@ -9,6 +9,7 @@
 #import "EVDHelpViewController.h"
 #import "EVDSounds.h"
 #import "AppDelegate.h"
+#import "EVDSettings.h"
 
 @interface EVDHelpViewController ()
 
@@ -29,6 +30,8 @@
     _buttonsSounds = [[EVDSounds alloc] init];
     _delegate = ( AppDelegate* )[UIApplication sharedApplication].delegate;
     
+    _switchBGMusic.on = [EVDSettings getBoolForKey:@"settingsPlayBackgroundMusic"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,9 +49,11 @@
     
     if(_switchBGMusic.on) {
         [_delegate.background play];
+        [EVDSettings setBoolForKey:@"settingsPlayBackgroundMusic" value:YES];
     }
     else {
         [_delegate.background stop];
+        [EVDSettings setBoolForKey:@"settingsPlayBackgroundMusic" value:NO];
         
     }
 }

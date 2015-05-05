@@ -20,10 +20,10 @@
 
 @property (nonatomic) NSInteger bookPageIndex;
 
-@property (nonatomic) IBOutlet UIView  *viewAlertFinalizar;
+@property (weak, nonatomic) IBOutlet UIView  *viewAlertFinalizar;
 @property (weak, nonatomic) IBOutlet UIButton *btnFinalizarOk;
 @property (weak, nonatomic) IBOutlet UIButton *btnFinalizarCancelar;
-@property (nonatomic) IBOutlet UIImageView *imageCheckViewAlert;
+@property (weak, nonatomic) IBOutlet UIImageView *imageCheckViewAlert;
 @property (weak, nonatomic) IBOutlet UIButton *btnFinalizar;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnEsq;

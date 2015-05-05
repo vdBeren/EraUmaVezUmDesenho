@@ -85,7 +85,7 @@
                     <rect key="frame" x="847" y="561" width="124" height="68"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdA-P6-77M" userLabel="btnRecordPause">
-                    <rect key="frame" x="16" y="627" width="80" height="80"/>
+                    <rect key="frame" x="69" y="627" width="80" height="80"/>
                     <state key="normal" backgroundImage="Gravar.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -95,7 +95,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7uk-bT-00J" userLabel="btnStop">
-                    <rect key="frame" x="16" y="539" width="80" height="80"/>
+                    <rect key="frame" x="69" y="539" width="80" height="80"/>
                     <state key="normal" backgroundImage="Stop.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -104,10 +104,10 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LegendaParar.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Xk-Qn-kFh" userLabel="imageStop">
-                    <rect key="frame" x="104" y="551" width="107" height="68"/>
+                    <rect key="frame" x="157" y="551" width="107" height="68"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LegendaGravar.png" translatesAutoresizingMaskIntoConstraints="NO" id="1BJ-U0-mQc" userLabel="imageRecord">
-                    <rect key="frame" x="104" y="633" width="124" height="68"/>
+                    <rect key="frame" x="157" y="633" width="124" height="68"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
