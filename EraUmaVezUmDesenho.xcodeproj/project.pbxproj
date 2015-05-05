@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54014D2B1AF964F4002D532C /* LegendaOuvir.png in Resources */ = {isa = PBXBuildFile; fileRef = 54014D291AF964F4002D532C /* LegendaOuvir.png */; };
+		54014D2C1AF964F4002D532C /* LegendaSalvar.png in Resources */ = {isa = PBXBuildFile; fileRef = 54014D2A1AF964F4002D532C /* LegendaSalvar.png */; };
 		54049ECA1AF4B6B500A0D252 /* EVDSounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 54049EC91AF4B6B500A0D252 /* EVDSounds.m */; };
 		54049ED41AF4B8F300A0D252 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 54049ECC1AF4B8F300A0D252 /* background.mp3 */; };
 		54049ED51AF4B8F300A0D252 /* caixaLapis.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 54049ECD1AF4B8F300A0D252 /* caixaLapis.mp3 */; };
@@ -118,6 +120,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		54014D291AF964F4002D532C /* LegendaOuvir.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LegendaOuvir.png; sourceTree = "<group>"; };
+		54014D2A1AF964F4002D532C /* LegendaSalvar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LegendaSalvar.png; sourceTree = "<group>"; };
 		54049EC81AF4B6AB00A0D252 /* EVDSounds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EVDSounds.h; sourceTree = "<group>"; };
 		54049EC91AF4B6B500A0D252 /* EVDSounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVDSounds.m; sourceTree = "<group>"; };
 		54049ECC1AF4B8F300A0D252 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
@@ -454,6 +458,8 @@
 		54EEAA391AF49AE300E141BF /* Recording */ = {
 			isa = PBXGroup;
 			children = (
+				54014D291AF964F4002D532C /* LegendaOuvir.png */,
+				54014D2A1AF964F4002D532C /* LegendaSalvar.png */,
 				54EEAA031AF49A7F00E141BF /* BtnPausarNarrar.png */,
 				54EEAA0B1AF49A7F00E141BF /* Gravar.png */,
 				54EEAA0C1AF49A7F00E141BF /* LegendaGravar.png */,
@@ -687,6 +693,7 @@
 				54EEAA7B1AF49D1100E141BF /* Icon-72.png in Resources */,
 				54EEA9C21AF4567700E141BF /* LaunchScreen.xib in Resources */,
 				549A0DF31AF5DC6E007CD13A /* redhoodTXT.txt in Resources */,
+				54014D2C1AF964F4002D532C /* LegendaSalvar.png in Resources */,
 				54EEAA281AF49A7F00E141BF /* FeedbackFinalizar.png in Resources */,
 				54EEAA571AF49C0E00E141BF /* c11.png in Resources */,
 				54EEAA241AF49A7F00E141BF /* Check-01.png in Resources */,
@@ -708,6 +715,7 @@
 				54EEAA4E1AF49C0E00E141BF /* c2.png in Resources */,
 				54EEAA371AF49A7F00E141BF /* Stop.png in Resources */,
 				54EEAA861AF49D1100E141BF /* Icon-Spotlight-40@2x.png in Resources */,
+				54014D2B1AF964F4002D532C /* LegendaOuvir.png in Resources */,
 				54EEAA311AF49A7F00E141BF /* Pausar.png in Resources */,
 				54EEAA2E1AF49A7F00E141BF /* Narrar.png in Resources */,
 				54EEAA1D1AF49A7F00E141BF /* BtnNarrar.png in Resources */,

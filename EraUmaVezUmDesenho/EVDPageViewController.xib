@@ -103,7 +103,7 @@
                         <action selector="stopTapped:" destination="-1" eventType="touchUpInside" id="1sq-D8-w4Q"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LegendaParar.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Xk-Qn-kFh" userLabel="imageStop">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LegendaSalvar.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Xk-Qn-kFh" userLabel="imageStop">
                     <rect key="frame" x="157" y="551" width="107" height="68"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LegendaGravar.png" translatesAutoresizingMaskIntoConstraints="NO" id="1BJ-U0-mQc" userLabel="imageRecord">
@@ -120,7 +120,7 @@
         <image name="Iconelapis.png" width="709" height="627"/>
         <image name="LegendaGravar.png" width="151" height="71"/>
         <image name="LegendaIniciar.png" width="133" height="71"/>
-        <image name="LegendaParar.png" width="123" height="71"/>
+        <image name="LegendaSalvar.png" width="139" height="71"/>
         <image name="Pausar.png" width="256" height="294"/>
         <image name="Play.png" width="256" height="336"/>
         <image name="Stop.png" width="258" height="250"/>

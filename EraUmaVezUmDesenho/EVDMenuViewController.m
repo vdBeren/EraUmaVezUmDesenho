@@ -17,6 +17,7 @@
 @interface EVDMenuViewController (){
     
     UIImage *shelfTop, *shelfBottom, *shelfMiddle;
+    UIImageView *imageViewLockedBook;
     UIButton *auxCheckLocked;
     
 }
@@ -41,6 +42,7 @@
     _bookViewController = [[EVDBookPageViewController alloc] init];
     _bookShelfButtons = [[NSMutableArray alloc] init];
     
+    
     _viewContent = [[UIView alloc] initWithFrame:_scrollViewShelf.bounds];
     _imageViewShelf = [[UIImageView alloc] initWithFrame:_scrollViewShelf.bounds];
     
@@ -53,6 +55,18 @@
     
     [self createStandardBooks];
     [self sortShelfButtonArray];
+    
+    
+    // -- CHECA TODOS OS BOTOES DE SHELF PARA VER SE FORAM FECHADOS E TEM O ICONE DE FECHADO.
+    NSInteger i = 0;
+    for(UIButton *btnBook in _bookShelfButtons){
+        _selectedBookButton = [NSString stringWithFormat:@"%ld", i];
+        _bookSelected = [[EVDBookShelf bookShelf] bookForKey:_selectedBookButton];
+        [self checkForLockedBook:btnBook];
+        i++;
+    }
+    // -- FIM
+    
     
     // -- Seleciona o livro 1 de começo.
     _selectedBookButton = [NSString stringWithFormat:@"%ld", (long)0];
@@ -71,6 +85,22 @@
     [_btnFilho setEnabled:NO];
     [_btnPai setEnabled:NO];
     
+    int auxBookSelected = -1;
+    for(UIButton *btnBook in _bookShelfButtons){
+         if (auxBookSelected <= [[EVDBookShelf bookShelf] bookTotal])
+             auxBookSelected++;
+        
+         auxCheckLocked = btnBook;
+        _selectedBookButton = [NSString stringWithFormat:@"%ld", (long)auxBookSelected];
+        _bookSelected = [[EVDBookShelf bookShelf] bookForKey:_selectedBookButton];
+        
+        if ([self.bookSelected bookLocked]) {
+            UIImageView *fechado;
+            fechado = [[UIImageView alloc] initWithFrame:CGRectMake(auxCheckLocked.frame.size.width/2, auxCheckLocked.frame.size.height/2, 50, 50)];
+            fechado.image = [UIImage imageNamed:@"Check-01.png"];
+            [auxCheckLocked addSubview:fechado];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,17 +124,22 @@
     
     [self enableBtnFilhoPai];
     
-    
-    if ([self.bookSelected bookLocked]) {
-        //printf("fechado");
-        UIImageView *fechado;
-        // (xLocation, yLocation, myCircleWidth, myCircleHeight)
-        fechado = [[UIImageView alloc] initWithFrame:CGRectMake(auxCheckLocked.frame.size.width/2, auxCheckLocked.frame.size.height/2, 50, 50)];
-        fechado.image = [UIImage imageNamed:@"Check-01.png"];
-        [auxCheckLocked addSubview:fechado];
-    }
+    [self checkForLockedBook:auxCheckLocked];
     
     [super viewWillAppear:YES];
+}
+
+-(void) checkForLockedBook:(UIButton*)btnBook{
+    
+    auxCheckLocked = btnBook;
+    
+    if ([self.bookSelected bookLocked] && ![auxCheckLocked.subviews containsObject:imageViewLockedBook]) {
+        imageViewLockedBook = [[UIImageView alloc] initWithFrame:CGRectMake(auxCheckLocked.frame.size.width/2, auxCheckLocked.frame.size.height/2, 50, 50)];
+        imageViewLockedBook.image = [UIImage imageNamed:@"Check-01.png"];
+        [auxCheckLocked addSubview:imageViewLockedBook];
+    }
+    
+    
 }
 
 - (void) createStandardBooks{
@@ -117,7 +152,7 @@
         [self createBookWithBookTotalPages:24 bookName:@"joaoemaria"];
         NSLog(@"Criou livros padroes pela primeira e unica vez!");
     }
-
+    
     
 }
 
@@ -134,7 +169,7 @@
     [_currentUser setCurrentUser:0];
     [_bookViewController setCurrentBook:_bookSelected];
     [self.navigationController pushViewController:_bookViewController  animated:YES];
-
+    
     
 }
 
@@ -145,7 +180,7 @@
     [_currentUser setCurrentUser:1];
     [_bookViewController setCurrentBook:_bookSelected];
     [self.navigationController pushViewController:_bookViewController  animated:YES];
-
+    
 }
 
 - (void) selectedButton:(id)sender{
@@ -294,15 +329,14 @@
 }
 
 
-
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

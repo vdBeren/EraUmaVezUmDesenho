@@ -284,7 +284,7 @@
         
         else{
             [_btnPlay setBackgroundImage:imagePlay forState:UIControlStateNormal];
-            [_imageLabelPlayPause setImage:[UIImage imageNamed:@"LegendaIniciar.png"]];
+            [_imageLabelPlayPause setImage:[UIImage imageNamed:@"LegendaOuvir.png"]];
             
         }
     }
