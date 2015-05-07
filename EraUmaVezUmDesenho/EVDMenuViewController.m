@@ -85,22 +85,6 @@
     [_btnFilho setEnabled:NO];
     [_btnPai setEnabled:NO];
     
-    int auxBookSelected = -1;
-    for(UIButton *btnBook in _bookShelfButtons){
-        if (auxBookSelected <= [[EVDBookShelf bookShelf] bookTotal])
-            auxBookSelected++;
-        
-        auxCheckLocked = btnBook;
-        _selectedBookButton = [NSString stringWithFormat:@"%ld", (long)auxBookSelected];
-        _bookSelected = [[EVDBookShelf bookShelf] bookForKey:_selectedBookButton];
-        
-        if ([self.bookSelected bookLocked]) {
-            UIImageView *fechado;
-            fechado = [[UIImageView alloc] initWithFrame:CGRectMake(auxCheckLocked.frame.size.width/2, auxCheckLocked.frame.size.height/2, 50, 50)];
-            fechado.image = [UIImage imageNamed:@"Check-01.png"];
-            [auxCheckLocked addSubview:fechado];
-        }
-    }
 }
 
 - (void)didReceiveMemoryWarning {
