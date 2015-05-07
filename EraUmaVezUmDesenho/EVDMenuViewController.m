@@ -87,10 +87,10 @@
     
     int auxBookSelected = -1;
     for(UIButton *btnBook in _bookShelfButtons){
-         if (auxBookSelected <= [[EVDBookShelf bookShelf] bookTotal])
-             auxBookSelected++;
+        if (auxBookSelected <= [[EVDBookShelf bookShelf] bookTotal])
+            auxBookSelected++;
         
-         auxCheckLocked = btnBook;
+        auxCheckLocked = btnBook;
         _selectedBookButton = [NSString stringWithFormat:@"%ld", (long)auxBookSelected];
         _bookSelected = [[EVDBookShelf bookShelf] bookForKey:_selectedBookButton];
         
